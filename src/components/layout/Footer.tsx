@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
 
@@ -369,3 +369,4 @@ const handleSubmit = (e: React.FormEvent) => {
     </>
   );
 }
+
