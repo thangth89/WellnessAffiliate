@@ -235,7 +235,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 Like many websites, we use Cookies on our Site. For specific 
                 information about the Cookies that we use related to powering our 
-                store with Shopify, see{&apos; '}
+                store with Shopify, see{' '}
               <Link href="https://www.shopify.com/legal/cookies?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">https://www.shopify.com/legal/cookies.</Link>
 		We 
                 use Cookies to power and improve our Site and our Services 
@@ -339,7 +339,7 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <p className="mt-4">
-                We have &quot;sold" and &quot;shared&quot; (as those terms are defined in 
+                We have &quot;sold&quot; and &quot;shared&quot; (as those terms are defined in 
                 applicable law) personal information over the preceding 12 months 
                 for the purpose of engaging in advertising and marketing activities, 
                 as follows:
@@ -433,10 +433,10 @@ export default function PrivacyPolicyPage() {
                 information they or others have about you, including your email 
                 address. We (or service providers on our behalf) may then send 
                 communications and marketing to these email addresses. You may 
-                opt out of receiving this advertising by visiting 
+                opt out of receiving this advertising by visiting {' '}
                 <Link href="https://app.retention.com/optout?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                 https://app.retention.com/optout.
-		</Link>
+				</Link>
               </p>
             </section>
 
@@ -560,4 +560,5 @@ export default function PrivacyPolicyPage() {
       </div>
     </>
   );
+
 }
