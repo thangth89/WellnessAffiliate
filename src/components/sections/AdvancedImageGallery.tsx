@@ -21,16 +21,8 @@ const AdvancedImageGallery = ({
 }: AdvancedImageGalleryProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
-  if (images.length === 0) {
-    return (
-      <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-        <span className="text-gray-500">No images available</span>
-      </div>
-    );
-  }
-
-  // Fonction pour créer l'ordre circulaire des thumbnails
+  
+// Fonction pour créer l'ordre circulaire des thumbnails
   const getCircularThumbnailOrder = useCallback((startIndex: number) => {
     const result = [];
     for (let i = 0; i < images.length; i++) {
@@ -39,6 +31,13 @@ const AdvancedImageGallery = ({
     }
     return result;
   }, [images]);
+  if (images.length === 0) {
+    return (
+      <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+        <span className="text-gray-500">No images available</span>
+      </div>
+    );
+  }
 
   const goToNext = () => {
     setSelectedIndex((prev) => (prev + 1) % images.length);
@@ -285,5 +284,6 @@ const AdvancedImageGallery = ({
     </div>
   );
 };
+
 
 export default AdvancedImageGallery;
