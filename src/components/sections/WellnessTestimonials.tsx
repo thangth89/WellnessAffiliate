@@ -6,28 +6,29 @@ const WellnessTestimonial = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.3 // Trigger when 30% of the component is visible
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
       }
-    );
+    },
+    { threshold: 0.3 }
+  );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  const element = sectionRef.current; // ✅ lưu ref vào biến cục bộ
+  if (element) {
+    observer.observe(element);
+  }
+
+  return () => {
+    if (element) {
+      observer.unobserve(element); // ✅ cleanup đúng cách
     }
+    observer.disconnect(); // ✅ hủy observer tránh memory leak
+  };
+}, []);
 
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   const stats = [
     {
@@ -178,5 +179,6 @@ const WellnessTestimonial = () => {
     </div>
   );
 };
+
 
 export default WellnessTestimonial;
