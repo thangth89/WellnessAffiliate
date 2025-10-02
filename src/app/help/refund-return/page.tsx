@@ -8,7 +8,7 @@ export default function RefundPolicyPage() {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Refund policy</h1>
           <p className="text-gray-600 leading-relaxed">
-            At the heart of our brand is a simple belief: happy customers build lasting success. That&apos;s why we're dedicated to ensuring every customer is completely satisfied — your happiness is our top priority.
+            At the heart of our brand is a simple belief: happy customers build lasting success. That&apos;s why we&apos;re dedicated to ensuring every customer is completely satisfied — your happiness is our top priority.
           </p>
         </div>
 
@@ -16,11 +16,10 @@ export default function RefundPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Money-Back Guarantee</h2>
           <p className="text-gray-600 mb-4">
-            We <span className="font-semibold">offer a 90-day money-back guarantee for first-time, non-subscription purchases of each unique product or bundle</span> — because we stand behind the quality of what we create. Want to learn more about how it works and which purchases are eligible?{&apos; '}
+            We <span className="font-semibold">offer a 90-day money-back guarantee for first-time, non-subscription purchases of each unique product or bundle</span> — because we stand behind the quality of what we create. Want to learn more about how it works and which purchases are eligible?{' '}
             <Link href="https://wellness-nest.gorgias.help/en-US/wellness-nests-money-back-guarantee-812287?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               Check out this article
-            </Link>{&apos; '}
-            for full details. If you're not satisfied with the results, simply reach out to our Customer Experience Team to check your eligibility for a refund by{' '}
+            </Link> for full details. If you're not satisfied with the results, simply reach out to our Customer Experience Team to check your eligibility for a refund by{' '}
             <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1719739279494" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               CLICKING HERE
             </Link>. If refunds are approved, we may ask you to safely destroy the product before issuing a refund — this precaution helps ensure that potentially compromised products are not consumed by people, pets, or wildlife.
@@ -90,7 +89,7 @@ export default function RefundPolicyPage() {
               <div>
                 <h4 className="text-lg font-semibold text-gray-700 mb-2">2. International Orders:</h4>
                 <p className="text-gray-600">
-                  No refunds are offered for international orders, except under special circumstances at our discretion. {&apos;&quot;'}International{'"'} is defined as any and all countries outside of the United States of America.
+                  No refunds are offered for international orders, except under special circumstances at our discretion. &quot;International&quot; is defined as any and all countries outside of the United States of America.
                 </p>
               </div>
 
@@ -104,7 +103,7 @@ export default function RefundPolicyPage() {
               <div>
                 <h4 className="text-lg font-semibold text-gray-700 mb-2">4. Delivery Issues:</h4>
                 <p className="text-gray-600">
-                  Lost-in-transit items, damaged packaging, or orders marked as {&apos;&quot;'}delivered{'"'} but not found. In such cases, we're happy to offer a <span className="font-semibold">replacement</span>, but <span className="font-semibold">refunds are issued at our discretion</span>.
+                  Lost-in-transit items, damaged packaging, or orders marked as &quot;delivered&quot; but not found. In such cases, we're happy to offer a <span className="font-semibold">replacement</span>, but <span className="font-semibold">refunds are issued at our discretion</span>.
                 </p>
               </div>
 
@@ -112,7 +111,7 @@ export default function RefundPolicyPage() {
                 <h4 className="text-lg font-semibold text-gray-700 mb-2">5. Incorrect or Incomplete Address / Unclaimed Packages:</h4>
                 <ul className="ml-6 space-y-2">
                   <li className="text-gray-600">
-                    • Orders with inaccurate or incomplete addresses, unclaimed parcels, or deliveries marked as {&apos;&quot;'}delivered{'"'} but not received due to customer error are not eligible for a refund.
+                    • Orders with inaccurate or incomplete addresses, unclaimed parcels, or deliveries marked as &quot;delivered&quot; but not received due to customer error are not eligible for a refund.
                   </li>
                   <li className="text-gray-600">
                     • An <span className="font-semibold">incomplete address</span> includes any order missing essential delivery details such as: Street number or name, Apartment, suite, or unit number (if applicable), City, State, Postal/Zip code, City, or country information
@@ -161,7 +160,7 @@ export default function RefundPolicyPage() {
                 <h4 className="text-lg font-semibold text-gray-700 mb-2">9. Failure to follow Return Process:</h4>
                 <ul className="ml-6 space-y-2">
                   <li className="text-gray-600">
-                    • If the return process is not followed correctly (e.g., no prior request, missing info, or sending items without approval), <span className="font-semibold">no refund will be issued</span>. You can find more details about our return policy here:{&apos; '}
+                    • If the return process is not followed correctly (e.g., no prior request, missing info, or sending items without approval), <span className="font-semibold">no refund will be issued</span>. You can find more details about our return policy here:{' '}
                     <Link href="https://wellness-nest.gorgias.help/en-US/articles/returns-295366?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                       [link]
                     </Link>.
@@ -200,7 +199,7 @@ export default function RefundPolicyPage() {
                   <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                     Customer Experience Team
                   </Link>{&apos; '}
-                  before placing your order. We're happy to help you make the best choice!
+                  before placing your order. We&apos;re happy to help you make the best choice!
                 </p>
               </div>
             </div>
@@ -218,11 +217,11 @@ export default function RefundPolicyPage() {
                 • When processing refunds, there is often some processing time required by banks before a refund is reflected in your bank statement. We ask that you refrain from filing a dispute or chargeback request with your financial institution as it will significantly prolong your refund process, <span className="font-semibold">sometimes taking over 60 days</span>, depending on your bank as they need to investigate thoroughly and review the case.
               </li>
               <li className="text-gray-600">
-                • If you experience any issues with your order, product, refund timeline, or anything else impacting your experience with us, we strongly encourage you to contact our{&apos; '}
+                • If you experience any issues with your order, product, refund timeline, or anything else impacting your experience with us, we strongly encourage you to contact our{' '}
                 <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                   Customer Experience Team
-                </Link>{&apos; '}
-                first. We're here to help resolve your concerns quickly and effectively—often much faster than going through a dispute or chargeback process.
+                </Link>
+                first. We&apos;re here to help resolve your concerns quickly and effectively—often much faster than going through a dispute or chargeback process.
               </li>
             </ul>
           </div>
@@ -238,18 +237,18 @@ export default function RefundPolicyPage() {
                     • At Wellness Nest, we typically <span className="font-semibold">process PayPal refunds within 1–2 business days</span> from the time your request is approved – Once processed, PayPal refunds take effect instantly and will reflect in your PayPal balance in real-time.
                   </li>
                   <li className="text-gray-600">
-                    • Please note: If you use PayPal echeck, it typically <span className="font-semibold">takes 4–7 business days</span>, and in some cases up to 10 business days, for the payment to clear {&apos; '}
+                    • Please note: If you use PayPal echeck, it typically <span className="font-semibold">takes 4–7 business days</span>, and in some cases up to 10 business days, for the payment to clear {' '}
                     <Link href="https://www.paypal.com/sg/cshelp/article/why-hasnt-the-echeque-that-i-received-cleared-yet-help283?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
 			— as estimated by PayPal. 
-		   </Link>{&apos; '}
+		   </Link>
 
 PayPal can only issue the refund after the eCheck has successfully cleared.
                   </li>
                   <li className="text-gray-600">
-                    • If your eCheck has not cleared and the refund has not been received <span className="font-semibold">after 10 days</span>, kindly{&apos; '}
+                    • If your eCheck has not cleared and the refund has not been received <span className="font-semibold">after 10 days</span>, kindly{' '}
                     <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                       contact us
-                    </Link>{&apos; '}
+                    </Link>
                     for best assistance.
                   </li>
                 </ul>
@@ -292,10 +291,10 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
           </p>
           
           <p className="text-gray-600 mb-4">
-            We might be able to help you amend your order details if it has not been fulfilled, but we cannot promise that we are always able to. If we are not able to cancel, we can refund the full amount paid for the order to your original mode of payment. Read our{&apos; '}
+            We might be able to help you amend your order details if it has not been fulfilled, but we cannot promise that we are always able to. If we are not able to cancel, we can refund the full amount paid for the order to your original mode of payment. Read our{' '}
             <Link href="https://wellness-nest.gorgias.help/en-US/how-do-i-cancel-an-order-purchased-directly-from-wellness-nest-813061?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               guide to canceling orders
-            </Link>{&apos; '}
+            </Link>
             to learn how.
           </p>
           
@@ -334,10 +333,10 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
             
             <ul className="space-y-2 ml-6 mb-4">
               <li className="text-gray-600">
-                • Contact our{&apos; '}
+                • Contact our{' '}
                 <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                   Customer Experience Team
-                </Link>{&apos; '}
+                </Link>
                 first to obtain approval and return instructions. Unapproved returns will not be accepted or refunded.
               </li>
               <li className="text-gray-600">• Include <span className="font-semibold">all items</span> from the eligible order(s).</li>
@@ -364,7 +363,7 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
             <h3 className="text-xl font-semibold text-gray-800 mb-3">INTERNATIONAL RETURN POLICY (OUTSIDE OF THE USA)</h3>
             <ul className="space-y-2 ml-6 mb-4">
               <li className="text-gray-600">
-                • We do not request for or accept returns of international orders. {&apos;&quot;'}International{'"'} is defined as any and all countries outside of the United States of America.
+                • We do not request for or accept returns of international orders. &quot;International&quot; is defined as any and all countries outside of the United States of America.
               </li>
               <li className="text-gray-600">
                 • Partial refunds up to 50% & reshipments will be determinant on an individual basis. But refunds are at our discretion
@@ -375,7 +374,7 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
               If you&apos;re unsure about this process, please contact us via our{' '}
               <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                 Contact Us
-              </Link>{&apos; '}
+              </Link>
               page.
             </p>
           </div>
