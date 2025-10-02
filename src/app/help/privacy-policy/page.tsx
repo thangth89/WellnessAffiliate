@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Chặn Ctrl+C, Ctrl+A, Ctrl+S, Ctrl+P, F12
       if (
-        (e.ctrlKey && (e.key === &apos;c' || e.key === 'a' || e.key === 's' || e.key === 'p')) ||
+        (e.ctrlKey && (e.key === 'c' || e.key === 'a' || e.key === 's' || e.key === 'p')) ||
         e.key === 'F12' ||
         (e.ctrlKey && e.shiftKey && e.key === 'I') ||
         (e.ctrlKey && e.shiftKey && e.key === 'C') ||
@@ -47,12 +47,12 @@ export default function PrivacyPolicyPage() {
           
           <div className="prose max-w-none text-gray-700 space-y-6">
             <p>
-              This Privacy Policy describes how Wellness Unlocked (the {&apos;&quot;'}Site{'"'}, {'"'}we{'"'}, {'"'}us{'"'}, 
-              or {'"'}our{'"'}) collects, uses, and discloses your personal information 
+              This Privacy Policy describes how Wellness Unlocked (the &quot;Site&quot;,&quot;we&quot;, &quot;us&quot;, 
+              or &quot;our&quot;) collects, uses, and discloses your personal information 
               when you visit, use our services, or make a purchase from 
-              wellnessunlocked.co (the {'"'}Site{'"'}) or otherwise communicate with us 
-              (collectively, the {'"'}Services{'"'}). For purposes of this Privacy Policy, 
-              {'"'}you{'"'} and {'"'}your{'"'} mean you as the user of the Services, whether you 
+              wellnessunlocked.co (the &quot;Site&quot;) or otherwise communicate with us 
+              (collectively, the&quot;Services&quot;). For purposes of this Privacy Policy, 
+              &quot;you&quot; and &quot;your&quot; mean you as the user of the Services, whether you 
               are a customer, website visitor, or another individual whose 
               information we have collected pursuant to this Privacy Policy.
             </p>
@@ -71,7 +71,7 @@ export default function PrivacyPolicyPage() {
                 We may update this Privacy Policy from time to time, including to 
                 reflect changes to our practices or for other operational, legal, or 
                 regulatory reasons. We will post the revised Privacy Policy on the 
-                Site, update the {&apos;&quot;'}last updated{'"'} date and take any other steps 
+                Site, update the &quot;last updated&quot; date and take any other steps 
                 required by applicable law.
               </p>
             </section>
@@ -97,7 +97,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 The types of personal information we obtain about you depends on 
                 how you interact with our Site and use our Services. When we use 
-                the term {&apos;&quot;'}personal information{'"'}, we are referring to information that 
+                the term &quot;personal information&quot;, we are referring to information that 
                 identifies, relates to, describes or can be associated with you. The 
                 following sections describe the categories and specific types of 
                 personal information we collect.
@@ -141,8 +141,8 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Information We Collect Through Cookies</h3>
               <p>
                 We also automatically collect certain information about your 
-                interaction with the Services ({&apos;&quot;'}Usage Data{'"'}). To do this, we may use 
-                cookies, pixels and similar technologies ({'"'}Cookies{'"'}). Usage Data 
+                interaction with the Services (&quot;Usage Data&quot;). To do this, we may use 
+                cookies, pixels and similar technologies (&quot;Cookies&quot;). Usage Data 
                 may include information about how you access and use our account, 
                 and your account, including device information, browser 
                 information, information about your network connection, your IP 
@@ -236,11 +236,8 @@ export default function PrivacyPolicyPage() {
                 Like many websites, we use Cookies on our Site. For specific 
                 information about the Cookies that we use related to powering our 
                 store with Shopify, see{&apos; '}
-              <Link href="https://www.shopify.com/legal/cookies?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
-https://www.shopify.com/legal/cookies. 
-</Link>{&apos; '}
-
-We 
+              <Link href="https://www.shopify.com/legal/cookies?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">https://www.shopify.com/legal/cookies.</Link>
+		We 
                 use Cookies to power and improve our Site and our Services 
                 (including to remember your actions and preferences), to run 
                 analytics and deliver interest-based advertising. Please refer to our Cookie Policy for more information about the types of Cookies we use, why, and how you can 
@@ -304,8 +301,8 @@ We
                 We have, in the past 12 months disclosed the following categories of 
                 personal information and sensitive personal information (denoted 
                 by *) about users for the purposes set out above in &quot;How we Collect 
-                and Use your Personal Information" and "How we Disclose Personal 
-                Information":
+                and Use your Personal Information" and &quot;How we Disclose Personal 
+                Information&quot;:
               </p>
 
               <div className="mt-6 overflow-x-auto">
@@ -342,7 +339,7 @@ We
               </p>
 
               <p className="mt-4">
-                We have &quot;sold" and "shared" (as those terms are defined in 
+                We have &quot;sold" and &quot;shared&quot; (as those terms are defined in 
                 applicable law) personal information over the preceding 12 months 
                 for the purpose of engaging in advertising and marketing activities, 
                 as follows:
@@ -455,7 +452,7 @@ We
               
               <p>
                 As of the Effective Date of this Privacy Policy, we do not have actual 
-                knowledge that we {&apos;&quot;'}share{'"'} or {'"'}sell{'"'} (as those terms are defined in 
+                knowledge that we &quot;share&quot; or &quot;sell&quot; (as those terms are defined in 
                 applicable law) personal information of individuals under 16 years of 
                 age.
               </p>
@@ -465,7 +462,7 @@ We
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Security and Retention of Your Information</h2>
               <p>
                 Please be aware that no security measures are perfect or 
-                impenetrable, and we cannot guarantee {&apos;&quot;'}perfect security{'"'}. In 
+                impenetrable, and we cannot guarantee &quot;perfect security&quot;. In 
                 addition, any information you send to us may not be secure while in 
                 transit. We recommend that you do not use unsecure channels to 
                 communicate sensitive or confidential information to us.
