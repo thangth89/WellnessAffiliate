@@ -1,7 +1,7 @@
-"use client&quot;;
-import { useEffect } from &apos;react&apos;;
-import Head from &apos;next/head&apos;;
-import Link from &apos;next/link&apos;;
+"use client";
+import { useEffect } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
 
 export default function PrivacyPolicyPage() {
   // Chặn right-click và các phím tắt copy
@@ -10,11 +10,11 @@ export default function PrivacyPolicyPage() {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Chặn Ctrl+C, Ctrl+A, Ctrl+S, Ctrl+P, F12
       if (
-        (e.ctrlKey && (e.key === &apos;c&apos; || e.key === &apos;a' || e.key === &apos;s' || e.key === &apos;p')) ||
-        e.key === &apos;F12&apos; ||
-        (e.ctrlKey && e.shiftKey && e.key === &apos;I') ||
-        (e.ctrlKey && e.shiftKey && e.key === &apos;C') ||
-        (e.ctrlKey && e.key === &apos;u')
+        (e.ctrlKey && (e.key === &apos;c' || e.key === 'a' || e.key === 's' || e.key === 'p')) ||
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+        (e.ctrlKey && e.key === 'u')
       ) {
         e.preventDefault();
       }
@@ -22,14 +22,14 @@ export default function PrivacyPolicyPage() {
 
     const handleSelectStart = (e: Event) => e.preventDefault();
 
-    document.addEventListener(&apos;contextmenu&apos;, handleContextMenu);
-    document.addEventListener(&apos;keydown&apos;, handleKeyDown);
-    document.addEventListener(&apos;selectstart&apos;, handleSelectStart);
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('selectstart', handleSelectStart);
 
     return () => {
-      document.removeEventListener(&apos;contextmenu&apos;, handleContextMenu);
-      document.removeEventListener(&apos;keydown&apos;, handleKeyDown);
-      document.removeEventListener(&apos;selectstart&apos;, handleSelectStart);
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('selectstart', handleSelectStart);
     };
   }, []);
 
@@ -37,22 +37,22 @@ export default function PrivacyPolicyPage() {
     <>
       <Head>
         <title>Privacy Policy - Wellness Unlocked</title>
-        <meta name=&quot;robots&quot; content=&quot;noindex, follow&quot; />
-        <meta name=&quot;googlebot&quot; content=&quot;noindex, follow&quot; />
+        <meta name="robots" content="noindex, follow" />
+        <meta name="googlebot" content="noindex, follow" />
       </Head>
       
-      <div className=&quot;min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8&quot; style={{userSelect: &apos;none&apos;, WebkitUserSelect: &apos;none&apos;, MozUserSelect: &apos;none&apos;}}>
-        <div className=&quot;max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8&quot;>
-          <h1 className=&quot;text-3xl font-bold text-center text-gray-900 mb-8&quot;>Privacy Policy</h1>
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8" style={{userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none'}}>
+        <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+          <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">Privacy Policy</h1>
           
-          <div className=&quot;prose max-w-none text-gray-700 space-y-6&quot;>
+          <div className="prose max-w-none text-gray-700 space-y-6">
             <p>
-              This Privacy Policy describes how Wellness Unlocked (the {&apos;&quot;&apos;}Site{&apos;&quot;'}, {&apos;&quot;'}we{&apos;&quot;'}, {&apos;&quot;'}us{&apos;&quot;'}, 
-              or {&apos;&quot;'}our{&apos;&quot;'}) collects, uses, and discloses your personal information 
+              This Privacy Policy describes how Wellness Unlocked (the {&apos;&quot;'}Site{'"'}, {'"'}we{'"'}, {'"'}us{'"'}, 
+              or {'"'}our{'"'}) collects, uses, and discloses your personal information 
               when you visit, use our services, or make a purchase from 
-              wellnessunlocked.co (the {&apos;&quot;'}Site{&apos;&quot;'}) or otherwise communicate with us 
-              (collectively, the {&apos;&quot;'}Services{&apos;&quot;'}). For purposes of this Privacy Policy, 
-              {&apos;&quot;'}you{&apos;&quot;'} and {&apos;&quot;'}your{&apos;&quot;'} mean you as the user of the Services, whether you 
+              wellnessunlocked.co (the {'"'}Site{'"'}) or otherwise communicate with us 
+              (collectively, the {'"'}Services{'"'}). For purposes of this Privacy Policy, 
+              {'"'}you{'"'} and {'"'}your{'"'} mean you as the user of the Services, whether you 
               are a customer, website visitor, or another individual whose 
               information we have collected pursuant to this Privacy Policy.
             </p>
@@ -66,18 +66,18 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Changes to This Privacy Policy</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to This Privacy Policy</h2>
               <p>
                 We may update this Privacy Policy from time to time, including to 
                 reflect changes to our practices or for other operational, legal, or 
                 regulatory reasons. We will post the revised Privacy Policy on the 
-                Site, update the {&apos;&quot;&apos;}last updated{&apos;&quot;'} date and take any other steps 
+                Site, update the {&apos;&quot;'}last updated{'"'} date and take any other steps 
                 required by applicable law.
               </p>
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>How We Collect and Use Your Personal Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">How We Collect and Use Your Personal Information</h2>
               <p>
                 To provide the Services, we collect and have collected over the past 
                 12 months personal information about you from a variety of sources, 
@@ -93,20 +93,20 @@ export default function PrivacyPolicyPage() {
                 Services, our rights, and the rights of our users or others.
               </p>
 
-              <h3 className=&quot;text-xl font-semibold text-gray-900 mt-6 mb-3&quot;>What Personal Information We Collect</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">What Personal Information We Collect</h3>
               <p>
                 The types of personal information we obtain about you depends on 
                 how you interact with our Site and use our Services. When we use 
-                the term {&apos;&quot;&apos;}personal information{&apos;&quot;'}, we are referring to information that 
+                the term {&apos;&quot;'}personal information{'"'}, we are referring to information that 
                 identifies, relates to, describes or can be associated with you. The 
                 following sections describe the categories and specific types of 
                 personal information we collect.
               </p>
 
-              <h3 className=&quot;text-xl font-semibold text-gray-900 mt-6 mb-3&quot;>Information We Collect Directly from You</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Information We Collect Directly from You</h3>
               <p>Information that you directly submit to us through our Services may include:</p>
               
-              <ul className=&quot;list-disc pl-6 space-y-2 mt-4&quot;>
+              <ul className="list-disc pl-6 space-y-2 mt-4">
                 <li>
                   <strong>Basic contact details</strong> including your name, address, phone 
                   number, email.
@@ -131,18 +131,18 @@ export default function PrivacyPolicyPage() {
                 </li>
               </ul>
 
-              <p className=&quot;mt-4&quot;>
+              <p className="mt-4">
                 Some features of the Services may require you to directly provide us 
                 with certain information about yourself. You may elect not to 
                 provide this information, but doing so may prevent you from using 
                 or accessing these features.
               </p>
 
-              <h3 className=&quot;text-xl font-semibold text-gray-900 mt-6 mb-3&quot;>Information We Collect Through Cookies</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Information We Collect Through Cookies</h3>
               <p>
                 We also automatically collect certain information about your 
-                interaction with the Services ({&apos;&quot;&apos;}Usage Data{&apos;&quot;'}). To do this, we may use 
-                cookies, pixels and similar technologies ({&apos;&quot;'}Cookies{&apos;&quot;'}). Usage Data 
+                interaction with the Services ({&apos;&quot;'}Usage Data{'"'}). To do this, we may use 
+                cookies, pixels and similar technologies ({'"'}Cookies{'"'}). Usage Data 
                 may include information about how you access and use our account, 
                 and your account, including device information, browser 
                 information, information about your network connection, your IP 
@@ -152,14 +152,14 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Information We Obtain from Third Parties</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Information We Obtain from Third Parties</h2>
               <p>
                 Finally, we may obtain information about you from third parties, 
                 including from vendors and service providers who may collect 
                 information on our behalf, such as:
               </p>
               
-              <ul className=&quot;list-disc pl-6 space-y-2 mt-4&quot;>
+              <ul className="list-disc pl-6 space-y-2 mt-4">
                 <li>Companies who support our Site and Services, such as Shopify.</li>
                 <li>
                   Our payment processors, who collect payment information 
@@ -177,7 +177,7 @@ export default function PrivacyPolicyPage() {
                 </li>
               </ul>
 
-              <p className=&quot;mt-4&quot;>
+              <p className="mt-4">
                 Any information we obtain from third parties will be treated in 
                 accordance with this Privacy Policy. We are not responsible or liable 
                 for the accuracy of the information provided to us by third parties 
@@ -188,9 +188,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>How We Use Your Personal Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">How We Use Your Personal Information</h2>
               
-              <ul className=&quot;list-disc pl-6 space-y-4&quot;>
+              <ul className="list-disc pl-6 space-y-4">
                 <li>
                   <strong>Providing Products and Services.</strong> We use your personal 
                   information to provide you with the Services in order to perform 
@@ -231,14 +231,14 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Cookies</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Cookies</h2>
               <p>
                 Like many websites, we use Cookies on our Site. For specific 
                 information about the Cookies that we use related to powering our 
-                store with Shopify, see{&apos; &apos;}
-              <Link href=&quot;https://www.shopify.com/legal/cookies?ref=jbjycrqj&sub_id=&quot; className=&quot;text-green-600 hover:text-green-700 underline&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>
+                store with Shopify, see{&apos; '}
+              <Link href="https://www.shopify.com/legal/cookies?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
 https://www.shopify.com/legal/cookies. 
-</Link>{&apos; &apos;}
+</Link>{&apos; '}
 
 We 
                 use Cookies to power and improve our Site and our Services 
@@ -261,14 +261,14 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>How We Disclose Personal Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">How We Disclose Personal Information</h2>
               <p>
                 In certain circumstances, we may disclose your personal 
                 information to third parties for legitimate purposes subject to this 
                 Privacy Policy. Such circumstances may include:
               </p>
               
-              <ul className=&quot;list-disc pl-6 space-y-2 mt-4&quot;>
+              <ul className="list-disc pl-6 space-y-2 mt-4">
                 <li>
                   With vendors or other third parties who perform services on our 
                   behalf (e.g., IT management, payment processing, data analytics, 
@@ -300,32 +300,32 @@ We
                 </li>
               </ul>
 
-              <p className=&quot;mt-4&quot;>
+              <p className="mt-4">
                 We have, in the past 12 months disclosed the following categories of 
                 personal information and sensitive personal information (denoted 
                 by *) about users for the purposes set out above in &quot;How we Collect 
-                and Use your Personal Information&quot; and &quot;How we Disclose Personal 
-                Information&quot;:
+                and Use your Personal Information" and "How we Disclose Personal 
+                Information":
               </p>
 
-              <div className=&quot;mt-6 overflow-x-auto&quot;>
-                <table className=&quot;min-w-full border-collapse border border-gray-300&quot;>
+              <div className="mt-6 overflow-x-auto">
+                <table className="min-w-full border-collapse border border-gray-300">
                   <thead>
-                    <tr className=&quot;bg-gray-100&quot;>
-                      <th className=&quot;border border-gray-300 px-4 py-2 text-left font-semibold&quot;>Category</th>
-                      <th className=&quot;border border-gray-300 px-4 py-2 text-left font-semibold&quot;>Categories of Recipients</th>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Category</th>
+                      <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Categories of Recipients</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Identifiers such as basic contact details and certain order and 
                         account information/Commercial information, such as order 
                         information, shopping information and customer support 
                         information/Internet or other similar network activity, such as 
                         Usage Data
                       </td>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Vendors and third parties who perform services on our behalf 
                         (such as internet service providers, payment processors, fulfillment 
                         partners, customer support partners and data analytics 
@@ -336,49 +336,49 @@ We
                 </table>
               </div>
 
-              <p className=&quot;mt-4&quot;>
+              <p className="mt-4">
                 We do not use or disclose sensitive personal information for the 
                 purposes of inferring characteristics about you.
               </p>
 
-              <p className=&quot;mt-4&quot;>
-                We have &quot;sold&quot; and &quot;shared&quot; (as those terms are defined in 
+              <p className="mt-4">
+                We have &quot;sold" and "shared" (as those terms are defined in 
                 applicable law) personal information over the preceding 12 months 
                 for the purpose of engaging in advertising and marketing activities, 
                 as follows:
               </p>
 
-              <div className=&quot;mt-6 overflow-x-auto&quot;>
-                <table className=&quot;min-w-full border-collapse border border-gray-300&quot;>
+              <div className="mt-6 overflow-x-auto">
+                <table className="min-w-full border-collapse border border-gray-300">
                   <thead>
-                    <tr className=&quot;bg-gray-100&quot;>
-                      <th className=&quot;border border-gray-300 px-4 py-2 text-left font-semibold&quot;>Category of Personal Information</th>
-                      <th className=&quot;border border-gray-300 px-4 py-2 text-left font-semibold&quot;>Categories of Recipients</th>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Category of Personal Information</th>
+                      <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Categories of Recipients</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Identifiers such as basic contact details and certain order and account information
                       </td>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Business and marketing partners
                       </td>
                     </tr>
                     <tr>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Commercial information such as records of products or services purchased and shopping 
                         information
                       </td>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Business and marketing partners
                       </td>
                     </tr>
                     <tr>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Internet or other similar network activity, such as Usage Data
                       </td>
-                      <td className=&quot;border border-gray-300 px-4 py-2&quot;>
+                      <td className="border border-gray-300 px-4 py-2">
                         Business and marketing partners
                       </td>
                     </tr>
@@ -388,7 +388,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>User Generated Content</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">User Generated Content</h2>
               <p>
                 The Services may enable you to post product reviews and other 
                 user-generated content. If you choose to submit user generated 
@@ -396,7 +396,7 @@ We
                 and accessible by anyone.
               </p>
               
-              <p className=&quot;mt-4&quot;>
+              <p className="mt-4">
                 We do not control who will have access to the information that you 
                 choose to make available to others, and cannot ensure that parties 
                 who have access to such information will respect your privacy or 
@@ -408,7 +408,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Third-Party Websites and Links</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Websites and Links</h2>
               <p>
                 Our Site may provide links to websites or other online platforms 
                 operated by third parties. If you follow links to sites not affiliated or 
@@ -428,7 +428,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Third-Party Pixels and Cookies</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Third-Party Pixels and Cookies</h2>
               <p>
                 When you visit our website, log in, register or open an email, cookies, 
                 ad beacons, and similar technologies may be used by our online 
@@ -437,14 +437,14 @@ We
                 address. We (or service providers on our behalf) may then send 
                 communications and marketing to these email addresses. You may 
                 opt out of receiving this advertising by visiting 
-                <Link href=&quot;https://app.retention.com/optout?ref=jbjycrqj&sub_id=&quot; className=&quot;text-green-600 hover:text-green-700 underline&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>
+                <Link href="https://app.retention.com/optout?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                 https://app.retention.com/optout.
 		</Link>
               </p>
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Children&apos;s Data</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Children&apos;s Data</h2>
               <p>
                 The Services are not intended to be used by children, and we do not 
                 knowingly collect any personal information about children. If you are 
@@ -455,17 +455,17 @@ We
               
               <p>
                 As of the Effective Date of this Privacy Policy, we do not have actual 
-                knowledge that we {&apos;&quot;&apos;}share{&apos;&quot;'} or {&apos;&quot;'}sell{&apos;&quot;'} (as those terms are defined in 
+                knowledge that we {&apos;&quot;'}share{'"'} or {'"'}sell{'"'} (as those terms are defined in 
                 applicable law) personal information of individuals under 16 years of 
                 age.
               </p>
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Security and Retention of Your Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Security and Retention of Your Information</h2>
               <p>
                 Please be aware that no security measures are perfect or 
-                impenetrable, and we cannot guarantee {&apos;&quot;&apos;}perfect security{&apos;&quot;'}. In 
+                impenetrable, and we cannot guarantee {&apos;&quot;'}perfect security{'"'}. In 
                 addition, any information you send to us may not be secure while in 
                 transit. We recommend that you do not use unsecure channels to 
                 communicate sensitive or confidential information to us.
@@ -480,7 +480,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Your Rights and Choices</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Your Rights and Choices</h2>
               <p>
                 Depending on where you live, you may have some or all of the rights 
                 listed below in relation to your personal information. However, these 
@@ -489,7 +489,7 @@ We
                 law.
               </p>
               
-              <ul className=&quot;list-disc pl-6 space-y-2 mt-4&quot;>
+              <ul className="list-disc pl-6 space-y-2 mt-4">
                 <li>
                   <strong>Right to Access / Know.</strong> You may have a right to request 
                   access to personal information that we hold about you, including 
@@ -514,7 +514,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Complaints</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Complaints</h2>
               <p>
                 If you have complaints about how we process your personal 
                 information, please contact us using the contact details provided 
@@ -526,7 +526,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>International Users</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">International Users</h2>
               <p>
                 Please note that we may transfer, store and process your personal 
                 information outside the country you live in, including the United 
@@ -545,7 +545,7 @@ We
             </section>
 
             <section>
-              <h2 className=&quot;text-2xl font-bold text-gray-900 mb-4&quot;>Contact</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact</h2>
               <p>
                 Should you have any questions about our privacy practices or this 
                 Privacy Policy, or if you would like to exercise any of the rights 
@@ -555,7 +555,7 @@ We
               </p>
             </section>
 
-            <div className=&quot;text-sm text-gray-500 text-center mt-12 pt-8 border-t&quot;>
+            <div className="text-sm text-gray-500 text-center mt-12 pt-8 border-t">
               Last updated: {new Date().toLocaleDateString()}
             </div>
           </div>
