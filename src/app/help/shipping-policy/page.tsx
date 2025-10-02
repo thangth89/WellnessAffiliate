@@ -21,10 +21,10 @@ export default function ShippingPolicyPage() {
             Once your order has been shipped, you&apos;ll receive an email with your tracking information, allowing you to monitor its progress at any time.
           </p>
           <p className="text-gray-600 mb-4">
-            To ensure you receive these updates, please check your spam folder and add{&apos; '}
+            To ensure you receive these updates, please check your spam folder and add{' '}
             <Link href="mailto:support@wellnessnest.co" className="text-green-600 hover:text-green-700 underline">
               support@wellnessnest.co
-            </Link>{&apos; '}
+            </Link>
             to your email contacts. You can{' '}
             <Link href="https://wellnessnest.co/apps/trackingmore" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               look up your tracking number on our website.
@@ -36,8 +36,7 @@ export default function ShippingPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">How Long Does It Take to Process My Order?</h2>
           <p className="text-gray-600 mb-4">
-            Our order processing time is within <span className="font-semibold">2 business days</span>. The exact timing depends on when the order is placed, but orders typically leave our warehouse within{&apos; '}
-            <span className="font-semibold">2 business days</span> after processing is completed. If you need to make any updates to your order details, please{&apos; '}
+            Our order processing time is within <span className="font-semibold">2 business days</span>. The exact timing depends on when the order is placed, but orders typically leave our warehouse within <span className="font-semibold">2 business days</span> after processing is completed. If you need to make any updates to your order details, please{' '}
             <Link href="https://wellnessnest.co/pages/contact-us-2612?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               contact us immediately.
             </Link>
@@ -72,8 +71,8 @@ export default function ShippingPolicyPage() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-2">Payment Processing:</h3>
               <p className="text-gray-600">
-                Your payment method (credit card, PayPal, etc.) is verified for security.{&apos; '}
-                <span className="font-semibold">Occasionally, orders may be flagged by fraud prevention systems or your bank for additional checks.</span>{&apos; '}
+                Your payment method (credit card, PayPal, etc.) is verified for security.
+                <span className="font-semibold">Occasionally, orders may be flagged by fraud prevention systems or your bank for additional checks.</span>
                 Look out for notification emails during this step.
               </p>
             </div>
@@ -134,10 +133,10 @@ export default function ShippingPolicyPage() {
           </p>
           
           <p className="text-gray-600 mb-4">
-            Our products are shipped from a centralized global warehouse, and delivery times depend largely on the efficiency of local postal services once the package reaches the destination country. While we strive to deliver promptly, certain regulatory requirements or logistical challenges may cause delays. Please check our{&apos; '}
+            Our products are shipped from a centralized global warehouse, and delivery times depend largely on the efficiency of local postal services once the package reaches the destination country. While we strive to deliver promptly, certain regulatory requirements or logistical challenges may cause delays. Please check our{' '}
             <Link href="https://wellness-nest.gorgias.help/en-US/shipping-prohibitions-and-restricted-destinations-1049048?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               list of restricted destinations
-            </Link>{&apos; '}
+            </Link>
             to find out if we are able to deliver our products to you.
           </p>
           
@@ -154,10 +153,10 @@ export default function ShippingPolicyPage() {
           </p>
           
           <p className="text-gray-600 mb-4">
-            If you believe your parcel is delayed, returned to sender, or missing,{&apos; '}
+            If you believe your parcel is delayed, returned to sender, or missing,{' '}
             <Link href="https://wellnessnest.co/pages/contact-us-2612?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               please contact our customer service team through our website.
-            </Link>{&apos; '}
+            </Link>
             To help us assist you as quickly as possible, kindly provide the following details:
           </p>
           
@@ -196,10 +195,10 @@ export default function ShippingPolicyPage() {
                 <div>
                   <h4 className="font-semibold text-gray-700 mb-2">12-Hour Correction Window:</h4>
                   <p className="text-gray-600">
-                    You have a 12-hour window after placing your order to request changes to your shipping address. Please{&apos; '}
+                    You have a 12-hour window after placing your order to request changes to your shipping address. Please{' '}
                     <Link href="https://wellnessnest.co/pages/contact-us-2612?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                       contact us
-                    </Link>{&apos; '}
+                    </Link>
                     immediately via email or chat with your updated details.
                   </p>
                 </div>
@@ -226,7 +225,7 @@ export default function ShippingPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Shipping Fees</h2>
           <p className="text-gray-600 mb-4">
-            You can find comprehensive details about our shipping fees{&apos; '}
+            You can find comprehensive details about our shipping fees{' '}
             <Link href="https://demo-shipping-fees.com" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               in this article
             </Link>.
@@ -265,10 +264,10 @@ export default function ShippingPolicyPage() {
           </p>
           
           <p className="text-gray-600 mb-4">
-            If your order is taking longer than expected, please{&apos; '}
+            If your order is taking longer than expected, please{' '}
             <Link href="https://wellnessnest.co/pages/contact-us-2612?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               contact us here
-            </Link>{&apos; '}
+            </Link>
             with your order details, and we will work with the carrier to find the most optimal solution based on your latest tracking data.
           </p>
           
@@ -289,7 +288,7 @@ export default function ShippingPolicyPage() {
           </p>
           
           <p className="text-gray-600 mb-4">
-            If the delivery status indicates &quot;delivered" but the address was incorrect and you did not notify us for a change within{&apos; '}
+            If the delivery status indicates &quot;delivered" but the address was incorrect and you did not notify us for a change within{' '}
             <span className="font-semibold">12 hours</span> of placing your order, we are unable to offer a replacement, refund, or reshipment.
           </p>
           
@@ -311,7 +310,7 @@ export default function ShippingPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Need Help?</h2>
           <p className="text-gray-600">
-            If you have any further questions regarding our shipping policies, please feel free to{&apos; '}
+            If you have any further questions regarding our shipping policies, please feel free to{' '}
             <Link href="https://wellnessnest.co/pages/contact-us-2612?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               contact us here
             </Link>.
