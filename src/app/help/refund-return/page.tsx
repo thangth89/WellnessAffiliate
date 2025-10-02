@@ -198,7 +198,7 @@ export default function RefundPolicyPage() {
                   If you&apos;re unsure about which product to choose or how much to order, we strongly encourage you to contact our{' '}
                   <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1735185517645" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
                     Customer Experience Team
-                  </Link>{&apos; '}
+                  </Link>
                   before placing your order. We&apos;re happy to help you make the best choice!
                 </p>
               </div>
@@ -446,4 +446,5 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
       </div>
     </div>
   );
+
 }
