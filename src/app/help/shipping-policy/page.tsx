@@ -124,7 +124,7 @@ export default function ShippingPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">International Delivery Times</h2>
           <p className="text-gray-600 mb-4">
-            For orders shipped outside the Contiguous United States, delivery times typically range from{&apos; '}
+            For orders shipped outside the Contiguous United States, delivery times typically range from
             <span className="font-semibold">14 to 30 business days</span>, although some orders may arrive sooner.
           </p>
           
@@ -319,4 +319,5 @@ export default function ShippingPolicyPage() {
       </div>
     </div>
   );
+
 }
