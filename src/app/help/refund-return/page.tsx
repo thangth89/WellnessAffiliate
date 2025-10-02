@@ -405,7 +405,7 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-3">Reshipments for Damaged or Incorrect Items</h3>
             <p className="text-gray-600 mb-4">
-              To be eligible for a <span className="font-semibold">reshipment</span>, you must notify us within <span className="font-semibold">7 days of receiving your order</span> by emailing{&apos; '}
+              To be eligible for a <span className="font-semibold">reshipment</span>, you must notify us within <span className="font-semibold">7 days of receiving your order</span> by emailing{' '}
               <Link href="mailto:support@wellnessnest.co" className="text-green-600 hover:text-green-700 underline">
                 support@wellnessnest.co
               </Link>, along with a <span className="font-semibold">photo showing the issue</span>.
@@ -448,3 +448,4 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
   );
 
 }
+
