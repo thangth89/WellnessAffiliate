@@ -9,7 +9,7 @@ export default function TermsOfServicePage() {
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Terms of Service</h1>
           <p className="text-gray-600 leading-relaxed">
             This website is operated by Wellness Nest and Wellness Nest is a brand under Global Ecocom LLC. Throughout the site,
-            the terms “we”, “us” and “our” refer to Wellness Nest. Wellness Nest offers this website, including all information,
+            the terms &quot;we&quot;, &quot;us&quot; and &quot;our&quot; refer to Wellness Nest. Wellness Nest offers this website, including all information,
             tools and Services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions,
             policies and notices stated here.
           </p>
@@ -18,8 +18,8 @@ export default function TermsOfServicePage() {
         {/* Intro */}
         <section className="space-y-6 text-gray-600 leading-relaxed mb-8">
           <p>
-            By visiting our site and/or purchasing something from us, you engage in our “Service” and agree to be bound by the following
-            terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced
+            By visiting our site and/or purchasing something from us, you engage in our &quot;Service&quot; and agree to be bound by the following
+            terms and conditions (&quot;Terms of Service&quot;, &quot;Terms&quot;), including those additional terms and conditions and policies referenced
             herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users
             who are browsers, vendors, customers, merchants, and/or contributors of content.
           </p>
@@ -100,7 +100,7 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">SECTION 5 – PRODUCTS OR SERVICES (if applicable)</h2>
           <p className="text-gray-600 mb-4">
-            Certain products or Services may be available exclusively online through the website. These products or Services may have limited quantities and 	    are subject to return or exchange only according to our Refund Policy:{&apos; '}
+            Certain products or Services may be available exclusively online through the website. These products or Services may have limited quantities and 	    are subject to return or exchange only according to our Refund Policy:{' '}
 	   <Link href="/help/refund-return" className="text-green-600 hover:text-green-700 underline">[HERE]</Link>.
           </p>
           <p className="text-gray-600 mb-4">
@@ -124,7 +124,7 @@ export default function TermsOfServicePage() {
             You agree to provide current, complete and accurate purchase and account information for all purchases made at our store. You agree to promptly 	    update your account and other information, including your email address and credit card numbers and expiration dates, so that we can complete 	    your transactions and contact you as needed.
           </p>
           <p className="text-gray-600">
-            For more details, please review our Refund Policy:{&apos; '}
+            For more details, please review our Refund Policy:{' '}
 	   <Link href="/help/refund-return" className="text-green-600 hover:text-green-700 underline">[REFUND POLICY]</Link>.
           </p>
         </section>
@@ -136,7 +136,7 @@ export default function TermsOfServicePage() {
             We may provide you with access to third-party tools over which we neither monitor nor have any control nor input.
           </p>
           <p className="text-gray-600 mb-4">
-	    You acknowledge and agree that we provide access to such tools &quot;as is" and "as available" without any warranties, representations or conditions 	    of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party 	    tools.
+	    You acknowledge and agree that we provide access to such tools &quot;as is&quot; and &quot;as available&quot; without any warranties, representations or conditions of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools.
           </p>
           <p className="text-gray-600 mb-4">
 	    Any use by you of the optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are 	    familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s).
@@ -159,7 +159,7 @@ export default function TermsOfServicePage() {
 	    We are not liable for any harm or damages related to the purchase or use of goods, Services, resources, content, or any other transactions made 	    in connection with any third-party websites.
           </p>
           <p className="text-gray-600">
-	    Please review carefully the third-party&apos;s policies and practices and make sure you understand them before you engage in any transaction. 		    Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
+	    Please review carefully the third-party&apos;s policies and practices and make sure you understand them before you engage in any transaction. 	    Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
           </p>
         </section>
 
@@ -167,10 +167,10 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">SECTION 9 – USER COMMENTS, FEEDBACK AND OTHER SUBMISSIONS</h2>
           <p className="text-gray-600 mb-4">
-            If, at our request, you send certain specific submissions (for example contest entries) or without a request from us, you send creative ideas, 	    suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, &apos;comments'), you agree    	    that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you 	    forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or 	    (3) to respond to any comments.
+            If, at our request, you send certain specific submissions (for example contest entries) or without a request from us, you send creative ideas, 	    suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, &apos;comments&apos;), 	    you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments 	    that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any 	    comments; or (3) to respond to any comments.
           </p>
           <p className="text-gray-600 mb-4">
-	    We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion to be unlawful, offensive, 	 	    threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party&apos;s intellectual property or these Terms 	    of Service.
+	    We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion to be unlawful, offensive, 	 	    threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party&apos;s intellectual property or these 	    Terms of Service.
 	  </p>
           <p className="text-gray-600">
 	    You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other 	 	    personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene 	  	    material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You 	    may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any 	    comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any 	    comments posted by you or any third-party.
@@ -181,7 +181,7 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">SECTION 10 – PERSONAL INFORMATION</h2>
           <p className="text-gray-600">
-	    Your submission of personal information through the store is governed by our Privacy Policy, which can be viewed here:{&apos; '}
+	    Your submission of personal information through the store is governed by our Privacy Policy, which can be viewed here:{' '}
 	    <Link href="/help/privacy-policy" className="text-green-600 hover:text-green-700 underline">[PRIVACY POLICY]</Link>.
           </p>
         </section>
@@ -214,7 +214,7 @@ export default function TermsOfServicePage() {
             You agree that from time to time we may remove the Service for indefinite periods of time or cancel the Service at any time, without notice to 	    you.
           </p>
           <p className="text-gray-600 mb-4">
-            You expressly agree that your use of, or inability to use, the Service is at your sole risk. The Service and all products and Services delivered 	    to you through the Service are (except as expressly stated by us) provided &apos;as is' and 'as available' for your use, without any representation, 	    warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable 	    quality, fitness for a particular purpose, durability, title, and non-infringement.
+            You expressly agree that your use of, or inability to use, the Service is at your sole risk. The Service and all products and Services delivered 	    to you through the Service are (except as expressly stated by us) provided &apos;as is&apos; and &apos;as available&apos; for your use, without 	    any representation, warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of 		    merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement.
           </p>
           <p className="text-gray-600">
             In no case shall Wellness Nest, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, Service providers or 	    licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, 	    including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based 	    in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the Service or any products procured 	    using the Service, or for any other claim related in any way to your use of the Service or any product, including, but not limited to, any 	   	    errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the Service or any content (or product) 	    posted, transmitted, or otherwise made available via the Service, even if advised of their possibility. Because some states or jurisdictions do 	    not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability 	    shall be limited to the maximum extent permitted by law.
@@ -225,7 +225,7 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">SECTION 14 – INDEMNIFICATION</h2>
           <p className="text-gray-600">
-	    You agree to indemnify, defend and hold harmless Wellness Nest and our parent, subsidiaries, affiliates, partners, officers, directors, agents, 	    contractors, licensors, Service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including 	  	    reasonable attorneys&apos; fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they 	  	    incorporate by reference, or your violation of any law or the rights of a third-party.
+	    You agree to indemnify, defend and hold harmless Wellness Nest and our parent, subsidiaries, affiliates, partners, officers, directors, agents, 	    contractors, licensors, Service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including 	  	    reasonable attorneys&apos; fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they 	    incorporate by reference, or your violation of any law or the rights of a third-party.
           </p>
         </section>
 
@@ -288,7 +288,7 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">SECTION 20 – CONTACT INFORMATION</h2>
           <p className="text-gray-600">
-            Questions about the Terms of Service should be sent to us at{&apos; '}
+            Questions about the Terms of Service should be sent to us at{' '}
             <Link href="mailto:support@wellnessnest.co" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               support@wellnessnest.co
             </Link>.
@@ -297,7 +297,7 @@ export default function TermsOfServicePage() {
             Our contact information is posted below:
           </p>
           <p className="text-gray-600">
-            <strong>Wellness Nest:</strong>{&apos; '}
+            <strong>Wellness Nest:</strong>{' '}
             <Link href="mailto:support@wellnessnest.co" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               support@wellnessnest.co
             </Link>.
