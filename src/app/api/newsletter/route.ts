@@ -9,7 +9,7 @@ export async function POST(req: Request) {
       body: JSON.stringify(body),
     });
 
-    let data: any;
+    let data: unknown;
     try {
       data = await res.json(); // nếu Script trả JSON
     } catch {
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       status: res.status,
       headers: { "Content-Type": "application/json" },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("API Proxy Error:", error);
     return new Response(
       JSON.stringify({ success: false, message: "Server error" }),
@@ -29,3 +29,4 @@ export async function POST(req: Request) {
     );
   }
 }
+
