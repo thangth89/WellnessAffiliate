@@ -69,7 +69,6 @@ const handleSubmit = (e: React.FormEvent) => {
               <li><Link href="/help/refund-return">Refund & Return Policy</Link></li>
               <li><Link href="/help/shipping-policy">Shipping Policy</Link></li>
               <li><Link href="/help/terms-of-service">Terms of Service</Link></li>
-              <li><Link href="/help/faqs">FAQs</Link></li>
             </ul>
           </div>
 
@@ -414,5 +413,6 @@ const handleSubmit = (e: React.FormEvent) => {
     </>
   );
 }
+
 
 
