@@ -39,7 +39,7 @@ export default function TailwindScrollingBanner() {
         }
         
         .animate-marquee {
-          animation: marquee 25s linear infinite;
+          animation: marquee 15s linear infinite;
         }
         
         .animate-marquee:hover {
@@ -50,3 +50,4 @@ export default function TailwindScrollingBanner() {
   );
 
 }
+
