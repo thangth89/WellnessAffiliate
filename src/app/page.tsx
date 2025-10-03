@@ -48,7 +48,7 @@ const JsonLd = () => {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Go Wellness Unlocked',
-    url: 'gowellnessunlocked.com',
+    url: 'https://gowellnessunlocked.com',
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://gowellnessunlocked.com/search?q={search_term_string}',
@@ -331,4 +331,5 @@ const ProductsPage = () => {
 
 
 export default ProductsPage;
+
 
