@@ -27,7 +27,7 @@ export default function TailwindScrollingBanner() {
         }
         
         .animate-marquee {
-          animation: marquee 15s linear infinite;
+          animation: marquee 25s linear infinite; /* Tăng thời gian animation */
         }
         
         .animate-marquee:hover {
