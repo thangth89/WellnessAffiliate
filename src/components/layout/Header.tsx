@@ -29,14 +29,14 @@ export default function Header() {
       return;
     }
     
-    // Đóng menu trước
-    setMobileMenuOpen(false);
-    setHelpDropdownOpen(false);
+    // Navigate trước
+    router.push(href);
     
-    // Navigate sau khi đóng menu
+    // Đóng menu sau
     setTimeout(() => {
-      router.push(href);
-    }, 50);
+      setMobileMenuOpen(false);
+      setHelpDropdownOpen(false);
+    }, 300);
   };
 
   return (
