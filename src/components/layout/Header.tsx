@@ -16,11 +16,8 @@ export default function Header() {
         setHelpDropdownOpen(false);
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
@@ -57,33 +54,24 @@ export default function Header() {
                       className="flex items-center text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors"
                     >
                       {item.name}
-                      <ChevronDownIcon 
-                        className={`ml-1 h-4 w-4 transition-transform ${
-                          helpDropdownOpen ? 'rotate-180' : ''
-                        }`} 
-                      />
+                      <ChevronDownIcon className={`ml-1 h-4 w-4 transition-transform ${helpDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
-                    
                     {helpDropdownOpen && (
                       <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50">
                         <div className="py-1">
-                          {HELP_MENU_ITEMS.map((helpItem) => {
-                            if (helpItem.isExternal) {
-                              return (
-                                
-                                  key={helpItem.name}
-                                  href={helpItem.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer nofollow"
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
-                                  onClick={() => setHelpDropdownOpen(false)}
-                                >
-                                  {helpItem.name}
-                                </a>
-                              );
-                            }
-                            
-                            return (
+                          {HELP_MENU_ITEMS.map((helpItem) => (
+                            helpItem.isExternal ? (
+                              
+                                key={helpItem.name}
+                                href={helpItem.href}
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
+                                onClick={() => setHelpDropdownOpen(false)}
+                              >
+                                {helpItem.name}
+                              </a>
+                            ) : (
                               <Link
                                 key={helpItem.name}
                                 href={helpItem.href}
@@ -92,8 +80,8 @@ export default function Header() {
                               >
                                 {helpItem.name}
                               </Link>
-                            );
-                          })}
+                            )
+                          ))}
                         </div>
                       </div>
                     )}
@@ -134,11 +122,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" />
-              ) : (
-                <Bars3Icon className="h-6 w-6" />
-              )}
+              {mobileMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -155,35 +139,26 @@ export default function Header() {
                         className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
                       >
                         {item.name}
-                        <ChevronDownIcon 
-                          className={`h-4 w-4 transition-transform ${
-                            helpDropdownOpen ? 'rotate-180' : ''
-                          }`} 
-                        />
+                        <ChevronDownIcon className={`h-4 w-4 transition-transform ${helpDropdownOpen ? 'rotate-180' : ''}`} />
                       </button>
-                      
                       {helpDropdownOpen && (
                         <div className="pl-4 space-y-1 mt-1">
-                          {HELP_MENU_ITEMS.map((helpItem) => {
-                            if (helpItem.isExternal) {
-                              return (
-                                
-                                  key={helpItem.name}
-                                  href={helpItem.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer nofollow"
-                                  className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
-                                  onClick={() => {
-                                    setHelpDropdownOpen(false);
-                                    setMobileMenuOpen(false);
-                                  }}
-                                >
-                                  {helpItem.name}
-                                </a>
-                              );
-                            }
-                            
-                            return (
+                          {HELP_MENU_ITEMS.map((helpItem) => (
+                            helpItem.isExternal ? (
+                              
+                                key={helpItem.name}
+                                href={helpItem.href}
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                                className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
+                                onClick={() => {
+                                  setHelpDropdownOpen(false);
+                                  setMobileMenuOpen(false);
+                                }}
+                              >
+                                {helpItem.name}
+                              </a>
+                            ) : (
                               <Link
                                 key={helpItem.name}
                                 href={helpItem.href}
@@ -195,8 +170,8 @@ export default function Header() {
                               >
                                 {helpItem.name}
                               </Link>
-                            );
-                          })}
+                            )
+                          ))}
                         </div>
                       )}
                     </div>
