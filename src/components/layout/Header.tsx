@@ -61,7 +61,7 @@ export default function Header() {
                         <div className="py-1">
                           {HELP_MENU_ITEMS.map((helpItem) => (
                             helpItem.isExternal ? (
-                              
+                              <a
                                 key={helpItem.name}
                                 href={helpItem.href}
                                 target="_blank"
@@ -211,3 +211,4 @@ export default function Header() {
     </header>
   );
 }
+
