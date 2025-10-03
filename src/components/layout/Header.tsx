@@ -167,9 +167,13 @@ export default function Header() {
                                 key={helpItem.name}
                                 href={helpItem.href}
                                 className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
-                                onClick={() => {
-                                  setMobileMenuOpen(false);
-                                  setHelpDropdownOpen(false);
+                                onClick={(e) => {
+                                  // Không ngăn chặn navigation
+                                  // Đóng menu sau khi navigation được trigger
+                                  setTimeout(() => {
+                                    setMobileMenuOpen(false);
+                                    setHelpDropdownOpen(false);
+                                  }, 100);
                                 }}
                               >
                                 {helpItem.name}
