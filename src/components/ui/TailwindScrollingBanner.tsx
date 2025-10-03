@@ -15,7 +15,7 @@ export default function TailwindScrollingBanner() {
         {/* First set of messages */}
         <div className="flex items-center justify-around min-w-full">
           {messages.map((message, index) => (
-            <span key={index} className="text-sm md:text-base font-medium px-4 px-8">
+            <span key={index} className="text-xs sm:text-sm md:text-base font-medium px-4 md:px-8">
               {message}
             </span>
           ))}
@@ -24,7 +24,7 @@ export default function TailwindScrollingBanner() {
         {/* Duplicate set for seamless loop */}
         <div className="flex items-center justify-around min-w-full">
           {messages.map((message, index) => (
-            <span key={`dup-${index}`} className="text-sm md:text-base font-medium px-4 px-8">
+            <span key={`dup-${index}`} className="text-xs sm:text-sm md:text-base font-medium px-4 md:px-8">
               {message}
             </span>
           ))}
@@ -48,6 +48,4 @@ export default function TailwindScrollingBanner() {
       `}</style>
     </div>
   );
-
 }
-
