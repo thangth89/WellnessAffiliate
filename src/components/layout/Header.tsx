@@ -180,7 +180,7 @@ export default function Header() {
                 
                 if (item.isExternal) {
                   return (
-                    
+                    <a
                       key={item.name}
                       href={item.href}
                       target="_blank"
@@ -211,6 +211,7 @@ export default function Header() {
     </header>
   );
 }
+
 
 
 
