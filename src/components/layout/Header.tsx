@@ -135,14 +135,17 @@ export default function Header() {
                   return (
                     <div key={item.name}>
                       <button
-                        onClick={() => setHelpDropdownOpen(!helpDropdownOpen)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setHelpDropdownOpen(!helpDropdownOpen);
+                        }}
                         className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
                       >
                         {item.name}
                         <ChevronDownIcon className={`h-4 w-4 transition-transform ${helpDropdownOpen ? 'rotate-180' : ''}`} />
                       </button>
                       {helpDropdownOpen && (
-                        <div className="pl-4 space-y-1 mt-1">
+                        <div className="pl-4 space-y-1 mt-1" onClick={(e) => e.stopPropagation()}>
                           {HELP_MENU_ITEMS.map((helpItem) => (
                             helpItem.isExternal ? (
                               <a
@@ -150,11 +153,7 @@ export default function Header() {
                                 href={helpItem.href}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
-                                className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
-                                onClick={() => {
-                                  setHelpDropdownOpen(false);
-                                  setMobileMenuOpen(false);
-                                }}
+                                className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
                               >
                                 {helpItem.name}
                               </a>
@@ -162,11 +161,7 @@ export default function Header() {
                               <Link
                                 key={helpItem.name}
                                 href={helpItem.href}
-                                className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
-                                onClick={() => {
-                                  setHelpDropdownOpen(false);
-                                  setMobileMenuOpen(false);
-                                }}
+                                className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
                               >
                                 {helpItem.name}
                               </Link>
@@ -211,7 +206,3 @@ export default function Header() {
     </header>
   );
 }
-
-
-
-
