@@ -301,7 +301,7 @@ export default function PrivacyPolicyPage() {
                 We have, in the past 12 months disclosed the following categories of 
                 personal information and sensitive personal information (denoted 
                 by *) about users for the purposes set out above in &quot;How we Collect 
-                and Use your Personal Information" and &quot;How we Disclose Personal 
+                and Use your Personal Information&quot; and &quot;How we Disclose Personal 
                 Information&quot;:
               </p>
 
@@ -562,3 +562,4 @@ export default function PrivacyPolicyPage() {
   );
 
 }
+
