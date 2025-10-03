@@ -58,7 +58,7 @@ export default function NewsletterPopup() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button type="Submit">Subscribe</button>
+          <button type="submit">Subscribe</button>
         </form>
         {message && <div className={`message ${messageType}`}>{message}</div>}
       </div>
@@ -137,3 +137,4 @@ export default function NewsletterPopup() {
     </div>
   );
 }
+
