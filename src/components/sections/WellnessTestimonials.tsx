@@ -2,33 +2,39 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 
+// ✅ Định nghĩa type cho CircularProgress props
+interface CircularProgressProps {
+  percentage: number;
+  size?: number;
+  isAnimating: boolean;
+}
+
 const WellnessTestimonial = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    },
-    { threshold: 0.3 }
-  );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
 
-  const element = sectionRef.current; // ✅ lưu ref vào biến cục bộ
-  if (element) {
-    observer.observe(element);
-  }
-
-  return () => {
+    const element = sectionRef.current;
     if (element) {
-      observer.unobserve(element); // ✅ cleanup đúng cách
+      observer.observe(element);
     }
-    observer.disconnect(); // ✅ hủy observer tránh memory leak
-  };
-}, []);
 
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   const stats = [
     {
@@ -48,16 +54,17 @@ useEffect(() => {
     }
   ];
 
-  const CircularProgress = ({ percentage, size = 80, isAnimating }) => {
+  // ✅ CircularProgress có type props rõ ràng
+  const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, size = 80, isAnimating }) => {
     const [currentPercentage, setCurrentPercentage] = useState(0);
-    
+
     useEffect(() => {
       if (isAnimating) {
         let start = 0;
         const end = percentage;
-        const duration = 2000; // 2 seconds
-        const increment = end / (duration / 16); // 60fps
-        
+        const duration = 2000;
+        const increment = end / (duration / 16);
+
         const timer = setInterval(() => {
           start += increment;
           if (start >= end) {
@@ -67,7 +74,7 @@ useEffect(() => {
             setCurrentPercentage(Math.floor(start));
           }
         }, 16);
-        
+
         return () => clearInterval(timer);
       } else {
         setCurrentPercentage(0);
@@ -82,7 +89,6 @@ useEffect(() => {
     return (
       <div className="relative inline-flex items-center justify-center">
         <svg width={size} height={size} className="transform -rotate-90">
-          {/* Background circle */}
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -91,7 +97,6 @@ useEffect(() => {
             strokeWidth="4"
             fill="none"
           />
-          {/* Progress circle */}
           <circle
             cx={size / 2}
             cy={size / 2}
@@ -115,20 +120,17 @@ useEffect(() => {
   return (
     <div className="max-w-7xl mx-auto p-8 bg-white" ref={sectionRef}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left side - Image collage */}
         <div className="relative">
           <Image 
             src="/images/reviews/review.webp" 
             alt="Customer testimonials collage" 
             className="rounded-lg object-cover shadow-lg"
             width={900}                         
-  	    height={900}  
+            height={900}  
           />
         </div>
 
-        {/* Right side - Content */}
         <div className="space-y-8">
-          {/* Title */}
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               <span className="text-green-600">Proof in Numbers:</span>{" "}
@@ -141,7 +143,6 @@ useEffect(() => {
             </p>
           </div>
 
-          {/* Statistics */}
           <div className="space-y-6">
             {stats.map((stat, index) => (
               <div key={index} className="flex items-start gap-6">
@@ -157,7 +158,6 @@ useEffect(() => {
             ))}
           </div>
 
-          {/* CTA button */}
           <div className="pt-6 text-center">
             <button 
               onClick={() => {
@@ -165,7 +165,6 @@ useEffect(() => {
                 if (targetSection) {
                   targetSection.scrollIntoView({ behavior: 'smooth' });
                 } else {
-                  // Fallback: scroll to bottom if section doesn't exist
                   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
               }}
@@ -180,6 +179,4 @@ useEffect(() => {
   );
 };
 
-
 export default WellnessTestimonial;
-
