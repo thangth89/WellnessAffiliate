@@ -10,7 +10,6 @@ export default function Header() {
   const [helpDropdownOpen, setHelpDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Đóng dropdown khi click bên ngoài
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -28,7 +27,6 @@ export default function Header() {
     <header className="bg-white shadow-sm border-b border-gray-200">
       <nav className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="flex h-14 sm:h-16 justify-between items-center">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink min-w-0">
             <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-purple-500 rounded-full opacity-20"></div>
@@ -49,10 +47,8 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {NAVIGATION_ITEMS.map((item) => {
-              // Xử lý đặc biệt cho Help menu
               if (item.name === 'Help') {
                 return (
                   <div key={item.name} className="relative" ref={dropdownRef}>
@@ -68,7 +64,6 @@ export default function Header() {
                       />
                     </button>
                     
-                    {/* Help Dropdown Menu */}
                     {helpDropdownOpen && (
                       <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50">
                         <div className="py-1">
@@ -106,7 +101,6 @@ export default function Header() {
                 );
               }
               
-              // Xử lý external links cho các menu items khác
               if (item.isExternal) {
                 return (
                   
@@ -121,7 +115,6 @@ export default function Header() {
                 );
               }
               
-              // Internal links
               return (
                 <Link
                   key={item.name}
@@ -134,7 +127,6 @@ export default function Header() {
             })}
           </div>
 
-          {/* Mobile menu button */}
           <div className="flex items-center flex-shrink-0 ml-2">
             <button
               type="button"
@@ -151,12 +143,10 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {NAVIGATION_ITEMS.map((item) => {
-                // Xử lý Help menu cho mobile
                 if (item.name === 'Help') {
                   return (
                     <div key={item.name}>
@@ -172,7 +162,6 @@ export default function Header() {
                         />
                       </button>
                       
-                      {/* Mobile Help Submenu */}
                       {helpDropdownOpen && (
                         <div className="pl-4 space-y-1 mt-1">
                           {HELP_MENU_ITEMS.map((helpItem) => {
@@ -214,7 +203,6 @@ export default function Header() {
                   );
                 }
                 
-                // Xử lý external links cho mobile
                 if (item.isExternal) {
                   return (
                     
@@ -230,7 +218,6 @@ export default function Header() {
                   );
                 }
                 
-                // Internal links
                 return (
                   <Link
                     key={item.name}
