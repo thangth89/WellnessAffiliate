@@ -1,5 +1,6 @@
-// src/components/ui/TailwindScrollingBanner.tsx
 'use client';
+
+import { useState } from 'react';
 
 export default function TailwindScrollingBanner() {
   const messages = [
@@ -8,29 +9,44 @@ export default function TailwindScrollingBanner() {
     "🛡️ 90-Day Money-Back Guarantee"
   ];
 
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
-    <div className="bg-green-500 text-white py-2 overflow-hidden relative">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {/* Lặp lại toàn bộ nội dung 4 lần để đảm bảo luôn có đủ nội dung trên màn hình */}
-        {[...messages, "       ", ...messages, "       ", ...messages, "       ", ...messages, "       "].map((message, index) => (
-          <span key={index} className="text-xs sm:text-sm md:text-base font-medium px-4 md:px-8">
-            {message}
-          </span>
-        ))}
+    <div 
+      className="bg-green-500 text-white py-2 overflow-hidden relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
+      <div className={`flex whitespace-nowrap ${isPaused ? '' : 'animate-marquee'}`}>
+        {/* First set of messages */}
+        <div className="inline-flex flex-shrink-0 items-center gap-x-8">
+          {messages.map((msg, idx) => (
+            <span key={idx} className="text-xs sm:text-sm md:text-base font-medium">
+              {msg}
+            </span>
+          ))}
+        </div>
+
+        {/* Duplicate set for seamless loop */}
+        <div className="inline-flex flex-shrink-0 items-center gap-x-8">
+          {messages.map((msg, idx) => (
+            <span key={`dup-${idx}`} className="text-xs sm:text-sm md:text-base font-medium">
+              {msg}
+            </span>
+          ))}
+        </div>
       </div>
-      
+
       <style jsx global>{`
         @keyframes marquee {
-          0% { transform: translateX(0%) }
-          100% { transform: translateX(-50%) }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-        
+
         .animate-marquee {
           animation: marquee 15s linear infinite;
-        }
-        
-        .animate-marquee:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </div>
