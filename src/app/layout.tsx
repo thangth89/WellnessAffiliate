@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: 'Shilajit, FloraFresh, Meno Mate – Natural Relief for Menopause & Hormonal Balance',
     description:
       'Natural menopause supplements to ease symptoms: hot flashes, night sweats, mood swings, low energy, and hormonal imbalance. Safe, effective, and science-backed.',
-    url: 'gowellnessunlocked.com',
+    url: 'https://gowellnessunlocked.com',
     siteName: 'Go Wellness Unlocked',
     locale: 'en_US',
     type: 'website',
