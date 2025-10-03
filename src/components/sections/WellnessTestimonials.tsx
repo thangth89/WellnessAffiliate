@@ -136,7 +136,7 @@ useEffect(() => {
             </h2>
             <p className="text-gray-600 text-lg italic leading-relaxed">
               Discover the real impact of our natural supplements—backed by 
-              thousands of satisfied customers who've experienced the difference. 
+              thousands of satisfied customers who&apos;ve experienced the difference. 
               Your wellness journey starts with trust
             </p>
           </div>
@@ -182,3 +182,4 @@ useEffect(() => {
 
 
 export default WellnessTestimonial;
+
