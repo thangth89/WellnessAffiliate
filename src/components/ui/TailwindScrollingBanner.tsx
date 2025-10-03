@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function TailwindScrollingBanner() {
   const messages = [
@@ -9,34 +9,36 @@ export default function TailwindScrollingBanner() {
     "🛡️ 90-Day Money-Back Guarantee"
   ];
 
-  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [animationDuration, setAnimationDuration] = useState(15); // default 15s
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const scrollWidth = containerRef.current.scrollWidth;
+      const clientWidth = containerRef.current.clientWidth;
+      // Tính duration dựa trên chiều dài nội dung
+      const duration = (scrollWidth / 50); // 50px/s
+      setAnimationDuration(duration);
+    }
+  }, []);
 
   return (
-    <div 
-      className="bg-green-500 text-white py-2 overflow-hidden relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={() => setIsPaused(true)}
-      onTouchEnd={() => setIsPaused(false)}
-    >
-      <div className={`flex whitespace-nowrap ${isPaused ? '' : 'animate-marquee'}`}>
-        {/* First set of messages */}
-        <div className="inline-flex flex-shrink-0 items-center gap-x-8">
-          {messages.map((msg, idx) => (
-            <span key={idx} className="text-xs sm:text-sm md:text-base font-medium">
-              {msg}
-            </span>
-          ))}
-        </div>
-
-        {/* Duplicate set for seamless loop */}
-        <div className="inline-flex flex-shrink-0 items-center gap-x-8">
-          {messages.map((msg, idx) => (
-            <span key={`dup-${idx}`} className="text-xs sm:text-sm md:text-base font-medium">
-              {msg}
-            </span>
-          ))}
-        </div>
+    <div className="bg-green-500 text-white py-2 overflow-hidden relative">
+      <div
+        ref={containerRef}
+        className="flex whitespace-nowrap"
+        style={{
+          animation: `marquee ${animationDuration}s linear infinite`
+        }}
+      >
+        {messages.concat(messages).map((msg, idx) => ( // nhân đôi để lặp mượt
+          <span
+            key={idx}
+            className="inline-block flex-shrink-0 px-4 md:px-8 text-xs sm:text-sm md:text-base font-medium"
+          >
+            {msg}
+          </span>
+        ))}
       </div>
 
       <style jsx global>{`
@@ -45,8 +47,13 @@ export default function TailwindScrollingBanner() {
           100% { transform: translateX(-50%); }
         }
 
-        .animate-marquee {
-          animation: marquee 15s linear infinite;
+        div[style*="animation: marquee"] {
+          display: flex;
+          align-items: center;
+        }
+
+        div[style*="animation: marquee"]:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </div>
