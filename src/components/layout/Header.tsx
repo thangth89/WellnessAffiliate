@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { NAVIGATION_ITEMS, HELP_MENU_ITEMS } from '@/lib/constants';
 
 export default function Header() {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [helpDropdownOpen, setHelpDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -19,6 +21,23 @@ export default function Header() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const handleMobileHelpItemClick = (href: string, isExternal: boolean) => {
+    if (isExternal) {
+      setMobileMenuOpen(false);
+      setHelpDropdownOpen(false);
+      return;
+    }
+    
+    // Đóng menu trước
+    setMobileMenuOpen(false);
+    setHelpDropdownOpen(false);
+    
+    // Navigate sau khi đóng menu
+    setTimeout(() => {
+      router.push(href);
+    }, 50);
+  };
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-200">
@@ -155,29 +174,18 @@ export default function Header() {
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
                                 className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
-                                onClick={() => {
-                                  setMobileMenuOpen(false);
-                                  setHelpDropdownOpen(false);
-                                }}
+                                onClick={() => handleMobileHelpItemClick(helpItem.href, true)}
                               >
                                 {helpItem.name}
                               </a>
                             ) : (
-                              <Link
+                              <button
                                 key={helpItem.name}
-                                href={helpItem.href}
-                                className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
-                                onClick={(e) => {
-                                  // Không ngăn chặn navigation
-                                  // Đóng menu sau khi navigation được trigger
-                                  setTimeout(() => {
-                                    setMobileMenuOpen(false);
-                                    setHelpDropdownOpen(false);
-                                  }, 100);
-                                }}
+                                onClick={() => handleMobileHelpItemClick(helpItem.href, false)}
+                                className="block w-full text-left px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
                               >
                                 {helpItem.name}
-                              </Link>
+                              </button>
                             )
                           ))}
                         </div>
