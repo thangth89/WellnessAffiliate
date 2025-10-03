@@ -1,9 +1,95 @@
 // src/app/products/page.tsx - Updated version
 import React from 'react';
+import type { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
 import ProductCard from '@/components/product/ProductCard';
 import ProductReviews from '@/components/sections/ProductReviews';
 import WellnessTestimonials from '@/components/sections/WellnessTestimonials';
+
+export const metadata: Metadata = {
+  title: 'Natural Menopause Support | Shilajit, FloraFresh & Meno Mate',
+  description:
+    'Discover natural supplements for menopause, perimenopause, and postmenopause. Relieve hot flashes, night sweats, mood swings, low energy & support hormonal balance with Shilajit, FloraFresh, and Meno Mate.',
+  keywords: [
+    'menopause support',
+    'perimenopause relief',
+    'postmenopause supplements',
+    'natural menopause remedies',
+    'Shilajit for women',
+    'FloraFresh',
+    'Meno Mate',
+    'hormonal balance',
+    'hot flashes relief',
+    'night sweats remedy',
+    'menopause mood swings',
+    'low energy menopause',
+    'vaginal dryness solution',
+  ],
+  openGraph: {
+    title: 'Natural Menopause Support | Shilajit, FloraFresh & Meno Mate',
+    description:
+      'Safe, effective, natural supplements for women. Balance hormones, ease menopause symptoms & restore vitality.',
+    url: 'https://yourdomain.com',
+    siteName: 'Wellness Store',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Natural Menopause Support – Shilajit, FloraFresh, Meno Mate',
+    description:
+      'Natural relief for menopause, perimenopause & postmenopause. Trusted by thousands of women worldwide.',
+  },
+};
+
+// ✅ JSON-LD cho Website + Organization
+const JsonLd = () => {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Wellness Store',
+    url: 'https://yourdomain.com',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://yourdomain.com/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Wellness Store',
+    url: 'https://yourdomain.com',
+    logo: 'https://yourdomain.com/logo.png',
+    sameAs: [
+      'https://www.facebook.com/yourpage',
+      'https://www.instagram.com/yourpage',
+      'https://www.youtube.com/@yourchannel',
+      'https://www.linkedin.com/company/yourcompany',
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+1-800-123-4567',
+      contactType: 'Customer Support',
+      areaServed: 'US',
+      availableLanguage: 'English',
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+    </>
+  );
+};
 
 
 // Type definition cho sản phẩm với multiple images và CTA text
@@ -208,6 +294,8 @@ const ProductsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
+	 {/* JSON-LD */}
+      <JsonLd />
       <HeroSection/>
       
       {/* Products Grid */}
@@ -240,5 +328,6 @@ const ProductsPage = () => {
     </div>
   );
 };
+
 
 export default ProductsPage;
