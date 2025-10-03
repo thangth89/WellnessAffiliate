@@ -24,6 +24,7 @@ export default function Header() {
     <header className="bg-white shadow-sm border-b border-gray-200">
       <nav className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="flex h-14 sm:h-16 justify-between items-center">
+          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink min-w-0">
             <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-purple-500 rounded-full opacity-20"></div>
@@ -44,6 +45,7 @@ export default function Header() {
             </div>
           </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {NAVIGATION_ITEMS.map((item) => {
               if (item.name === 'Help') {
@@ -88,7 +90,7 @@ export default function Header() {
                   </div>
                 );
               }
-              
+
               if (item.isExternal) {
                 return (
                   <a
@@ -102,7 +104,7 @@ export default function Header() {
                   </a>
                 );
               }
-              
+
               return (
                 <Link
                   key={item.name}
@@ -115,6 +117,7 @@ export default function Header() {
             })}
           </div>
 
+          {/* Mobile Toggle */}
           <div className="flex items-center flex-shrink-0 ml-2">
             <button
               type="button"
@@ -127,6 +130,7 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="space-y-1 px-2 pb-3 pt-2">
@@ -154,6 +158,10 @@ export default function Header() {
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
                                 className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setHelpDropdownOpen(false);
+                                }}
                               >
                                 {helpItem.name}
                               </a>
@@ -162,6 +170,10 @@ export default function Header() {
                                 key={helpItem.name}
                                 href={helpItem.href}
                                 className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setHelpDropdownOpen(false);
+                                }}
                               >
                                 {helpItem.name}
                               </Link>
@@ -172,7 +184,7 @@ export default function Header() {
                     </div>
                   );
                 }
-                
+
                 if (item.isExternal) {
                   return (
                     <a
@@ -187,7 +199,7 @@ export default function Header() {
                     </a>
                   );
                 }
-                
+
                 return (
                   <Link
                     key={item.name}
