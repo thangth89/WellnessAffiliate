@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { NAVIGATION_ITEMS, HELP_MENU_ITEMS } from '@/lib/constants';
 
 export default function Header() {
   const router = useRouter();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [helpDropdownOpen, setHelpDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -22,21 +23,17 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Đóng menu khi route thay đổi
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setHelpDropdownOpen(false);
+  }, [pathname]);
+
   const handleMobileHelpItemClick = (href: string, isExternal: boolean) => {
     if (isExternal) {
       setMobileMenuOpen(false);
       setHelpDropdownOpen(false);
-      return;
     }
-    
-    // Navigate trước
-    router.push(href);
-    
-    // Đóng menu sau
-    setTimeout(() => {
-      setMobileMenuOpen(false);
-      setHelpDropdownOpen(false);
-    }, 300);
   };
 
   return (
@@ -166,32 +163,35 @@ export default function Header() {
                       </button>
                       {helpDropdownOpen && (
                         <div className="pl-4 space-y-1 mt-1">
-                          {HELP_MENU_ITEMS.map((helpItem) => (
-                            helpItem.isExternal ? (
-                              <a
+                          {HELP_MENU_ITEMS.map((helpItem) => {
+                            if (helpItem.isExternal) {
+                              return (
+                                <a
+                                  key={helpItem.name}
+                                  href={helpItem.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer nofollow"
+                                  className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    setHelpDropdownOpen(false);
+                                  }}
+                                >
+                                  {helpItem.name}
+                                </a>
+                              );
+                            }
+                            
+                            return (
+                              <Link
                                 key={helpItem.name}
                                 href={helpItem.href}
-                                target="_blank"
-                                rel="noopener noreferrer nofollow"
                                 className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
-                                onClick={() => handleMobileHelpItemClick(helpItem.href, true)}
                               >
                                 {helpItem.name}
-                              </a>
-                            ) : (
-                              <a
-                                key={helpItem.name}
-                                href={helpItem.href}
-                                className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  handleMobileHelpItemClick(helpItem.href, false);
-                                }}
-                              >
-                                {helpItem.name}
-                              </a>
-                            )
-                          ))}
+                              </Link>
+                            );
+                          })}
                         </div>
                       )}
                     </div>
