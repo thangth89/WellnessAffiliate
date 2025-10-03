@@ -185,7 +185,7 @@ export default function ShippingPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Incorrect Address: What You Need to Know</h2>
           <p className="text-gray-600 mb-4">
-            To ensure a smooth delivery, it&apos;s essential to provide the correct shipping information at checkout. Mistakes can lead to delays, missed deliveries, or additional complications. Here's how we handle address issues:
+            To ensure a smooth delivery, it&apos;s essential to provide the correct shipping information at checkout. Mistakes can lead to delays, missed deliveries, or additional complications. Here&apos;s how we handle address issues:
           </p>
           
           <div className="space-y-6">
@@ -288,7 +288,7 @@ export default function ShippingPolicyPage() {
           </p>
           
           <p className="text-gray-600 mb-4">
-            If the delivery status indicates &quot;delivered" but the address was incorrect and you did not notify us for a change within{' '}
+            If the delivery status indicates &quot;delivered&quot; but the address was incorrect and you did not notify us for a change within{' '}
             <span className="font-semibold">12 hours</span> of placing your order, we are unable to offer a replacement, refund, or reshipment.
           </p>
           
@@ -321,3 +321,4 @@ export default function ShippingPolicyPage() {
   );
 
 }
+
