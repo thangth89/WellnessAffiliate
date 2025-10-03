@@ -53,25 +53,25 @@ export default function HeroSection() {
             className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm"
           >
             <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 italic text-center">"Natural support for menopause harmony."</p>
+              <p className="text-gray-800 italic text-center">&quot;Natural support for menopause harmony.&quot;</p>
             </div>
             <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 italic text-center">"Confidence starts within — feel fresh, balanced, and free."</p>
+              <p className="text-gray-800 italic text-center">&quot;Confidence starts within — feel fresh, balanced, and free.&quot;</p>
             </div>
             <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 italic text-center">"Find your calm through menopause — relief you can trust."</p>
+              <p className="text-gray-800 italic text-center">&quot;Find your calm through menopause — relief you can trust.&quot;</p>
             </div>
           </motion.div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
             <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 italic text-center">"Natural support for menopause harmony."</p>
+              <p className="text-gray-800 italic text-center">&quot;Natural support for menopause harmony.&quot;</p>
             </div>
             <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 italic text-center">"Confidence starts within — feel fresh, balanced, and free."</p>
+              <p className="text-gray-800 italic text-center">&quot;Confidence starts within — feel fresh, balanced, and free.&quot;</p>
             </div>
             <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-              <p className="text-gray-800 italic text-center">"Find your calm through menopause — relief you can trust."</p>
+              <p className="text-gray-800 italic text-center">&quot;Find your calm through menopause — relief you can trust.&quot;</p>
             </div>
           </div>
         )}
@@ -79,3 +79,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
