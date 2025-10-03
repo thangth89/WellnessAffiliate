@@ -73,12 +73,13 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
+       <noscript>
+          <img 
+            height="1" 
+            width="1" 
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=850947108943962&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=24634753192800370&ev=PageView&noscript=1"
+            alt="Facebook Pixel" 
           />
         </noscript>
       </head>
