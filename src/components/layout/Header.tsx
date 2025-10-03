@@ -29,13 +29,6 @@ export default function Header() {
     setHelpDropdownOpen(false);
   }, [pathname]);
 
-  const handleMobileHelpItemClick = (href: string, isExternal: boolean) => {
-    if (isExternal) {
-      setMobileMenuOpen(false);
-      setHelpDropdownOpen(false);
-    }
-  };
-
   return (
     <header className="bg-white shadow-sm border-b border-gray-200">
       <nav className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
@@ -181,15 +174,20 @@ export default function Header() {
                                 </a>
                               );
                             }
-                            
+
+                            // 🏠 Link nội bộ: dùng router.push()
                             return (
-                              <Link
+                              <button
                                 key={helpItem.name}
-                                href={helpItem.href}
-                                className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
+                                onClick={() => {
+                                  router.push(helpItem.href);
+                                  setMobileMenuOpen(false);
+                                  setHelpDropdownOpen(false);
+                                }}
+                                className="w-full text-left block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
                               >
                                 {helpItem.name}
-                              </Link>
+                              </button>
                             );
                           })}
                         </div>
