@@ -19,7 +19,7 @@ export default function RefundPolicyPage() {
             We <span className="font-semibold">offer a 90-day money-back guarantee for first-time, non-subscription purchases of each unique product or bundle</span> — because we stand behind the quality of what we create. Want to learn more about how it works and which purchases are eligible?{' '}
             <Link href="https://wellness-nest.gorgias.help/en-US/wellness-nests-money-back-guarantee-812287?ref=jbjycrqj&sub_id=" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               Check out this article
-            </Link> for full details. If you're not satisfied with the results, simply reach out to our Customer Experience Team to check your eligibility for a refund by{' '}
+            </Link> for full details. If you&apos;re not satisfied with the results, simply reach out to our Customer Experience Team to check your eligibility for a refund by{' '}
             <Link href="https://wellnessnest.co/pages/contact-us?_ab=0&key=1719739279494" className="text-green-600 hover:text-green-700 underline" target="_blank" rel="noopener noreferrer">
               CLICKING HERE
             </Link>. If refunds are approved, we may ask you to safely destroy the product before issuing a refund — this precaution helps ensure that potentially compromised products are not consumed by people, pets, or wildlife.
@@ -103,7 +103,7 @@ export default function RefundPolicyPage() {
               <div>
                 <h4 className="text-lg font-semibold text-gray-700 mb-2">4. Delivery Issues:</h4>
                 <p className="text-gray-600">
-                  Lost-in-transit items, damaged packaging, or orders marked as &quot;delivered&quot; but not found. In such cases, we're happy to offer a <span className="font-semibold">replacement</span>, but <span className="font-semibold">refunds are issued at our discretion</span>.
+                  Lost-in-transit items, damaged packaging, or orders marked as &quot;delivered&quot; but not found. In such cases, we&apos;re happy to offer a <span className="font-semibold">replacement</span>, but <span className="font-semibold">refunds are issued at our discretion</span>.
                 </p>
               </div>
 
@@ -448,4 +448,5 @@ PayPal can only issue the refund after the eCheck has successfully cleared.
   );
 
 }
+
 
