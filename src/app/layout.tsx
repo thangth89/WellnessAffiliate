@@ -56,10 +56,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Analytics/>
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
         <div className="fixed top-0 left-0 right-0 z-50">
+          <Analytics/>
           <TailwindScrollingBanner />
           <Header />
           <NewsletterPopup />
