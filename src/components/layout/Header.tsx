@@ -139,17 +139,14 @@ export default function Header() {
                   return (
                     <div key={item.name}>
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setHelpDropdownOpen(!helpDropdownOpen);
-                        }}
+                        onClick={() => setHelpDropdownOpen(!helpDropdownOpen)}
                         className="flex items-center justify-between w-full px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
                       >
                         {item.name}
                         <ChevronDownIcon className={`h-4 w-4 transition-transform ${helpDropdownOpen ? 'rotate-180' : ''}`} />
                       </button>
                       {helpDropdownOpen && (
-                        <div className="pl-4 space-y-1 mt-1" onClick={(e) => e.stopPropagation()}>
+                        <div className="pl-4 space-y-1 mt-1">
                           {HELP_MENU_ITEMS.map((helpItem) => (
                             helpItem.isExternal ? (
                               <a
