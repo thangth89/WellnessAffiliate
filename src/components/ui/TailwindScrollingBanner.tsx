@@ -9,18 +9,34 @@ export default function TailwindScrollingBanner() {
   ];
   
   const containerRef = useRef<HTMLDivElement>(null);
+  const [animationDistance, setAnimationDistance] = useState(0);
   const [animationDuration, setAnimationDuration] = useState(15);
   
-  // Nhân bản đủ để đảm bảo luôn có nội dung trên màn hình
-  const repeatedMessages = [...messages, ...messages, ...messages, ...messages];
+  // Nhân đôi messages để tạo vòng lặp liền mạch
+  const repeatedMessages = [...messages, ...messages];
   
   useEffect(() => {
-    if (containerRef.current) {
-      const scrollWidth = containerRef.current.scrollWidth;
-      // Tính duration dựa trên chiều dài thực tế
-      const duration = (scrollWidth / 4) / 50; // Chia 4 vì đã nhân 4 lần
-      setAnimationDuration(duration);
-    }
+    const updateAnimation = () => {
+      if (containerRef.current) {
+        const firstSet = containerRef.current.children;
+        if (firstSet.length > 0) {
+          // Tính chiều rộng của 1 bộ messages (3 messages)
+          let singleSetWidth = 0;
+          for (let i = 0; i < messages.length; i++) {
+            singleSetWidth += (firstSet[i] as HTMLElement).offsetWidth;
+          }
+          
+          setAnimationDistance(singleSetWidth);
+          // Tốc độ 50px/giây
+          const duration = singleSetWidth / 50;
+          setAnimationDuration(duration);
+        }
+      }
+    };
+    
+    updateAnimation();
+    window.addEventListener('resize', updateAnimation);
+    return () => window.removeEventListener('resize', updateAnimation);
   }, []);
   
   return (
@@ -29,7 +45,9 @@ export default function TailwindScrollingBanner() {
         ref={containerRef}
         className="flex whitespace-nowrap"
         style={{
-          animation: `marquee ${animationDuration}s linear infinite`
+          animation: animationDistance > 0 
+            ? `marquee ${animationDuration}s linear infinite` 
+            : 'none'
         }}
       >
         {repeatedMessages.map((msg, idx) => (
@@ -43,8 +61,12 @@ export default function TailwindScrollingBanner() {
       </div>
       <style jsx global>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-25%); } 
+          0% { 
+            transform: translateX(0); 
+          }
+          100% { 
+            transform: translateX(-${animationDistance}px); 
+          }
         }
         div[style*="animation: marquee"] {
           display: flex;
