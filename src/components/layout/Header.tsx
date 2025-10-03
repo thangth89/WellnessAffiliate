@@ -58,7 +58,7 @@ export default function Header() {
                       />
                     </button>
                     {desktopHelpOpen && (
-                      <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50">
                         <div className="py-1">
                           {HELP_MENU_ITEMS.map((helpItem) =>
                             helpItem.isExternal ? (
@@ -215,3 +215,4 @@ export default function Header() {
     </header>
   );
 }
+
