@@ -179,13 +179,17 @@ export default function Header() {
                                 {helpItem.name}
                               </a>
                             ) : (
-                              <button
+                              <a
                                 key={helpItem.name}
-                                onClick={() => handleMobileHelpItemClick(helpItem.href, false)}
-                                className="block w-full text-left px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
+                                href={helpItem.href}
+                                className="block px-3 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors active:bg-gray-100"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  handleMobileHelpItemClick(helpItem.href, false);
+                                }}
                               >
                                 {helpItem.name}
-                              </button>
+                              </a>
                             )
                           ))}
                         </div>
