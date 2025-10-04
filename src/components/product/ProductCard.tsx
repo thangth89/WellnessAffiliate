@@ -3,11 +3,13 @@ import React from 'react';
 import { Star, ExternalLink } from 'lucide-react';
 import AdvancedImageGallery from '@/components/sections/AdvancedImageGallery';
 
+// TypeScript declaration for dataLayer
 declare global {
   interface Window {
     dataLayer: unknown[];
   }
 }
+
 // Interface cho Product với multiple images và CTA text
 export interface Product {
   id: number;
@@ -17,11 +19,11 @@ export interface Product {
   originalPrice?: string;
   reviews: number | string;
   rating: number;
-  images: string[]; // Thay đổi từ image thành images array
+  images: string[];
   isNew?: boolean;
   isSale?: boolean;
   affiliateLink: string;
-  ctaText?: string; // Thêm thuộc tính CTA text
+  ctaText?: string;
 }
 
 interface ProductCardProps {
@@ -63,11 +65,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return stars;
   };
 
+  // Handle CTA click
+  const handleCtaClick = () => {
+    if (typeof window !== 'undefined') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'cta_click',
+        button_type: product.ctaText || "Learn More",
+        product_id: product.id,
+        product_name: product.name,
+        product_price: product.price,
+        affiliate_link: product.affiliateLink
+      });
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
       {/* Image Gallery Section */}
       <div className="relative">
-      <AdvancedImageGallery images={product.images} />
+        <AdvancedImageGallery images={product.images} />
         
         {/* Badges */}
         <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
@@ -133,18 +150,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 text-sm"
-           onClick={
-          // Push event to dataLayer
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-            event: 'cta_click',
-            button_type: product.ctaText || "Learn More",
-            product_id: product.id,
-            product_name: product.name,
-            product_price: product.price,
-            affiliate_link: product.affiliateLink
-    });
-  }}
+          onClick={handleCtaClick}
         >
           {product.ctaText || "Learn More"}
           <ExternalLink size={14} />
@@ -154,9 +160,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   );
 };
 
-
 export default ProductCard;
-
-
-
-
