@@ -3,13 +3,12 @@
 import React from 'react';
 import { Star, ExternalLink } from 'lucide-react';
 import AdvancedImageGallery from '@/components/sections/AdvancedImageGallery';
-import { useFacebookCAPI } from '@/hooks/useFacebookCAPI';
 
 // TypeScript declaration for dataLayer and Facebook Pixel
 declare global {
   interface Window {
     dataLayer: unknown[];
-    fbq: (type: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>) => void;
+    fbq: (type: string, event: string, data?: Record<string, unknown>) => void;
   }
 }
 
@@ -34,9 +33,6 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  // Initialize Facebook CAPI Hook
-  const { trackEvent } = useFacebookCAPI();
-
   if (!product) {
     return null;
   }
@@ -73,8 +69,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return stars;
   };
 
-  // Handle CTA click với tracking tối ưu cho affiliate + CAPI
-  const handleCtaClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  // Handle CTA click với tracking tối ưu cho affiliate
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Cho phép Ctrl+Click, Cmd+Click, Middle-click mở tab mới bình thường
     if (e.ctrlKey || e.metaKey || e.button === 1) {
       return;
@@ -109,30 +105,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       }
     }
 
-    // Track với Facebook CAPI + Pixel (deduplication tự động)
-    try {
-      await trackEvent({
-        event_name: eventName, // Custom event: 'shilajit', 'florafresh', 'menomate'
-        custom_data: {
+    // Track với Facebook Pixel
+    if (typeof window !== 'undefined' && window.fbq) {
+      try {
+        window.fbq('trackCustom', eventName, {
           content_name: product.name,
           content_ids: [product.id.toString()],
           content_type: 'product',
           value: parseFloat(product.price),
           currency: 'USD',
+          content_category: 'wellness_supplements',
           product_id: product.id,
           cta_button: ctaText,
           original_price: product.originalPrice,
-          discount_percentage: discountPercentage,
-          content_category: 'wellness_supplements',
-        },
-        // Optional: Thêm user data nếu có (email, phone...)
-        // user_data: {
-        //   email: userEmail,
-        //   phone: userPhone,
-        // }
-      });
-    } catch (error) {
-      console.warn('Facebook CAPI tracking failed:', error);
+          discount_percentage: discountPercentage
+        });
+      } catch (error) {
+        console.warn('Facebook Pixel tracking failed:', error);
+      }
     }
 
     // Đợi tracking hoàn thành rồi mở link
@@ -141,6 +131,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       
       // Fallback nếu popup bị chặn
       if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // Thử mở lại với cách khác
         try {
           const link = document.createElement('a');
           link.href = affiliateLink;
@@ -154,7 +145,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           window.location.href = affiliateLink;
         }
       }
-    }, 150); // 150ms là tối ưu cho tracking scripts
+    }, 150); // 150ms là tối ưu cho hầu hết tracking scripts
   };
 
   return (
