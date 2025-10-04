@@ -5,7 +5,7 @@ import AdvancedImageGallery from '@/components/sections/AdvancedImageGallery';
 
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer: unknown[];
   }
 }
 // Interface cho Product với multiple images và CTA text
@@ -156,5 +156,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 
 export default ProductCard;
+
 
 
