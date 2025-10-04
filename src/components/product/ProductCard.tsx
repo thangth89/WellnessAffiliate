@@ -128,8 +128,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 text-sm"
-          data-product={product.name}     // ✅ thêm tên sản phẩm
-          data-id={product.id}            // ✅ thêm id sản phẩm (tuỳ chọn)
+           onClick={(e) => {
+          // Push event to dataLayer
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+            event: 'cta_click',
+            button_type: product.ctaText || "Learn More",
+            product_id: product.id,
+            product_name: product.name,
+            product_price: product.price,
+            affiliate_link: product.affiliateLink
+    });
+  }}
         >
           {product.ctaText || "Learn More"}
           <ExternalLink size={14} />
@@ -141,3 +151,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 
 export default ProductCard;
+
