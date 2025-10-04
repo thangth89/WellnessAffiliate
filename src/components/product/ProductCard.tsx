@@ -33,7 +33,6 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  // Kiểm tra product có tồn tại không
   if (!product) {
     return null;
   }
@@ -70,26 +69,45 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return stars;
   };
 
-  // Handle CTA click với Facebook Pixel Custom Events
-  const handleCtaClick = () => {
+  // Handle CTA click với tracking tối ưu cho affiliate
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Cho phép Ctrl+Click, Cmd+Click, Middle-click mở tab mới bình thường
+    if (e.ctrlKey || e.metaKey || e.button === 1) {
+      return;
+    }
+
+    // Chỉ xử lý left-click thông thường
+    if (e.button !== 0) {
+      return;
+    }
+
+    // Ngăn navigation mặc định
+    e.preventDefault();
+    
     const ctaText = product.ctaText || "Learn More";
-    // Sử dụng eventName cố định từ data sản phẩm, nếu không có thì dùng product.id
     const eventName = product.eventName || `product_${product.id}`;
+    const affiliateLink = product.affiliateLink;
 
     // Track với Google Analytics (GTM)
-    if (typeof window !== 'undefined') {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'cta_click',
-        button_type: ctaText,
-        product_id: product.id,
-        product_name: product.name,
-        product_price: product.price,
-        affiliate_link: product.affiliateLink
-      });
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      try {
+        window.dataLayer.push({
+          event: 'cta_click',
+          button_type: ctaText,
+          product_id: product.id,
+          product_name: product.name,
+          product_price: product.price,
+          affiliate_link: affiliateLink,
+          timestamp: new Date().toISOString()
+        });
+      } catch (error) {
+        console.warn('GTM tracking failed:', error);
+      }
+    }
 
-      // Track với Facebook Pixel - Gửi Custom Event với tên cố định
-      if (window.fbq) {
+    // Track với Facebook Pixel
+    if (typeof window !== 'undefined' && window.fbq) {
+      try {
         window.fbq('trackCustom', eventName, {
           content_name: product.name,
           content_ids: [product.id.toString()],
@@ -98,12 +116,36 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           currency: 'USD',
           content_category: 'wellness_supplements',
           product_id: product.id,
-          cta_button: ctaText, // Thông tin nút CTA
+          cta_button: ctaText,
           original_price: product.originalPrice,
           discount_percentage: discountPercentage
         });
+      } catch (error) {
+        console.warn('Facebook Pixel tracking failed:', error);
       }
     }
+
+    // Đợi tracking hoàn thành rồi mở link
+    setTimeout(() => {
+      const newWindow = window.open(affiliateLink, '_blank', 'noopener,noreferrer');
+      
+      // Fallback nếu popup bị chặn
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        // Thử mở lại với cách khác
+        try {
+          const link = document.createElement('a');
+          link.href = affiliateLink;
+          link.target = '_blank';
+          link.rel = 'sponsored noopener noreferrer';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error) {
+          // Cuối cùng, redirect trực tiếp
+          window.location.href = affiliateLink;
+        }
+      }
+    }, 150); // 150ms là tối ưu cho hầu hết tracking scripts
   };
 
   return (
@@ -166,9 +208,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <a
           href={product.affiliateLink}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="sponsored noopener noreferrer"
           className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 text-sm"
           onClick={handleCtaClick}
+          aria-label={`${product.ctaText || "Learn More"} about ${product.name}`}
         >
           {product.ctaText || "Learn More"}
           <ExternalLink size={14} />
