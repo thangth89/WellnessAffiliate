@@ -16,7 +16,7 @@ interface FacebookCAPIEvent {
     cta_button?: string;
     original_price?: string;
     discount_percentage?: number;
-    [key: string]: any;
+    [key: string]: unknown;
   };
   user_data?: {
     email?: string;
@@ -124,4 +124,5 @@ export function useFacebookCAPI() {
 }
 
 // Export helper functions
+
 export { getFacebookCookies, generateEventId };
