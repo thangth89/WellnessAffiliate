@@ -3,6 +3,7 @@
 import React from 'react';
 import { Star, ExternalLink } from 'lucide-react';
 import AdvancedImageGallery from '@/components/sections/AdvancedImageGallery';
+import { trackCustomEvent } from '@/lib/facebook-capi';
 
 // TypeScript declaration for dataLayer and Facebook Pixel
 declare global {
@@ -70,7 +71,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   // Handle CTA click với tracking tối ưu cho affiliate
-  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleCtaClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Cho phép Ctrl+Click, Cmd+Click, Middle-click mở tab mới bình thường
     if (e.ctrlKey || e.metaKey || e.button === 1) {
       return;
@@ -87,6 +88,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const ctaText = product.ctaText || "Learn More";
     const eventName = product.eventName || `product_${product.id}`;
     const affiliateLink = product.affiliateLink;
+    
+    // Tạo event ID duy nhất để deduplication
+    const eventId = `${product.id}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+    const customData = {
+      content_name: product.name,
+      content_ids: [product.id.toString()],
+      content_type: 'product',
+      value: parseFloat(product.price),
+      currency: 'USD',
+      content_category: 'wellness_supplements',
+      product_id: product.id,
+      cta_button: ctaText,
+      original_price: product.originalPrice,
+      discount_percentage: discountPercentage
+    };
 
     // Track với Google Analytics (GTM)
     if (typeof window !== 'undefined' && window.dataLayer) {
@@ -98,31 +115,35 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           product_name: product.name,
           product_price: product.price,
           affiliate_link: affiliateLink,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          event_id: eventId
         });
       } catch (error) {
         console.warn('GTM tracking failed:', error);
       }
     }
 
-    // Track với Facebook Pixel
+    // Track với Facebook Pixel (Browser)
     if (typeof window !== 'undefined' && window.fbq) {
       try {
         window.fbq('trackCustom', eventName, {
-          content_name: product.name,
-          content_ids: [product.id.toString()],
-          content_type: 'product',
-          value: parseFloat(product.price),
-          currency: 'USD',
-          content_category: 'wellness_supplements',
-          product_id: product.id,
-          cta_button: ctaText,
-          original_price: product.originalPrice,
-          discount_percentage: discountPercentage
+          ...customData,
+          event_id: eventId // Event ID để deduplication
         });
       } catch (error) {
         console.warn('Facebook Pixel tracking failed:', error);
       }
+    }
+
+    // Track với Facebook CAPI (Server-side)
+    try {
+      await trackCustomEvent({
+        eventName,
+        customData,
+        eventId // Cùng event ID với Pixel để deduplication
+      });
+    } catch (error) {
+      console.warn('Facebook CAPI tracking failed:', error);
     }
 
     // Đợi tracking hoàn thành rồi mở link
@@ -131,7 +152,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       
       // Fallback nếu popup bị chặn
       if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-        // Thử mở lại với cách khác
         try {
           const link = document.createElement('a');
           link.href = affiliateLink;
@@ -141,11 +161,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           link.click();
           document.body.removeChild(link);
         } catch (error) {
-          // Cuối cùng, redirect trực tiếp
           window.location.href = affiliateLink;
         }
       }
-    }, 150); // 150ms là tối ưu cho hầu hết tracking scripts
+    }, 150);
   };
 
   return (
