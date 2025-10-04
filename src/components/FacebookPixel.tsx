@@ -2,10 +2,11 @@
 'use client';
 import { useEffect } from 'react';
 import Script from 'next/script';
+import { trackPageView } from '@/lib/facebook-capi';
 
 declare global {
   interface Window {
-    fbq: (type: string, event: string, data?: Record<string, unknown>) => void;
+    fbq: (type: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>) => void;
     _fbq: Window['fbq'];
   }
 }
@@ -18,8 +19,19 @@ export default function FacebookPixel({ pixelId }: FacebookPixelProps) {
   useEffect(() => {
     // Khởi tạo Facebook Pixel khi component mount
     if (typeof window !== 'undefined' && window.fbq) {
+      // Tạo event ID duy nhất cho PageView
+      const eventId = `pageview_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      
+      // Init Facebook Pixel
       window.fbq('init', pixelId);
-      window.fbq('track', 'PageView');
+      
+      // Track PageView với Browser Pixel (kèm eventID để deduplication)
+      window.fbq('track', 'PageView', {}, { eventID: eventId });
+      
+      // Track PageView với CAPI (server-side) - sử dụng cùng eventID
+      trackPageView(eventId).catch((error) => {
+        console.warn('CAPI PageView tracking failed:', error);
+      });
     }
   }, [pixelId]);
 
