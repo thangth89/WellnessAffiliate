@@ -5,10 +5,16 @@ import Script from 'next/script';
 
 declare global {
   interface Window {
-    fbq: (type: string, event: string, data?: Record<string, unknown>) => void;
+    fbq: (
+      type: string,
+      event: string,
+      data?: Record<string, unknown>,
+      options?: Record<string, unknown>
+    ) => void;
     _fbq: Window['fbq'];
   }
 }
+
 
 interface FacebookPixelProps {
   pixelId: string;
@@ -52,4 +58,5 @@ export default function FacebookPixel({ pixelId }: FacebookPixelProps) {
       </noscript>
     </>
   );
+
 }
