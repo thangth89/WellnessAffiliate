@@ -3,6 +3,11 @@ import React from 'react';
 import { Star, ExternalLink } from 'lucide-react';
 import AdvancedImageGallery from '@/components/sections/AdvancedImageGallery';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
 // Interface cho Product với multiple images và CTA text
 export interface Product {
   id: number;
@@ -151,4 +156,5 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 
 export default ProductCard;
+
 
