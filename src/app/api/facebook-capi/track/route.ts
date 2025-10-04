@@ -1,3 +1,21 @@
+// src/app/api/facebook-capi/track/route.ts
+import { NextRequest, NextResponse } from "next/server";
+
+// Interface cho dữ liệu sự kiện Facebook
+interface FacebookEvent {
+  event_name: string;
+  event_time: number;
+  event_id: string;
+  custom_data?: Record<string, unknown>;
+  user_data?: {
+    em?: string; // email hash
+    ph?: string; // phone hash
+    client_ip_address?: string;
+    client_user_agent?: string;
+    [key: string]: unknown;
+  };
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body: FacebookEvent = await req.json();
@@ -9,16 +27,17 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 🚀 Bổ sung user_data tối thiểu
+    // Lấy thông tin IP và User-Agent
     const userAgent = req.headers.get("user-agent") || undefined;
-    const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || undefined;
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined;
 
-    const fbEvent = {
+    const fbEvent: FacebookEvent = {
       ...body,
       user_data: {
         client_user_agent: userAgent,
         client_ip_address: ip,
-        ...(body.user_data || {}), // merge nếu client gửi thêm
+        ...(body.user_data || {}),
       },
     };
 
@@ -32,6 +51,7 @@ export async function POST(req: NextRequest) {
     );
 
     const result = await fbResponse.json();
+
     return NextResponse.json(result, { status: fbResponse.status });
   } catch (error) {
     console.error("Facebook CAPI error:", error);
