@@ -9,7 +9,7 @@ import { trackCustomEvent } from '@/lib/facebook-capi';
 declare global {
   interface Window {
     dataLayer: unknown[];
-    fbq: (type: string, event: string, data?: Record<string, unknown>) => void;
+    fbq: (type: string, event: string, data?: Record<string, unknown>, options?: Record<string, unknown>) => void;
   }
 }
 
@@ -239,5 +239,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     </div>
   );
 };
+
 
 export default ProductCard;
