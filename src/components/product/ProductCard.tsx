@@ -122,20 +122,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     // Facebook CAPI server-side
     try {
       await fetch('/api/facebook-capi/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          event_name: product.eventName || 'cta_click',
-          event_id: eventId,
-          custom_data: {
-            content_name: product.name,
-            content_ids: [product.id.toString()],
-            value: parseFloat(product.price),
-            currency: 'USD'
-          },
-          user_data: {} // web không có email, để trống
-        })
-      });
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    event_name: product.eventName || 'cta_click',
+    event_id: eventId,
+    event_time: Math.floor(Date.now() / 1000), // thời gian UNIX
+    action_source: 'website', // bắt buộc
+    custom_data: {
+      content_name: product.name,
+      content_ids: [product.id.toString()],
+      value: parseFloat(product.price),
+      currency: 'USD'
+    },
+    user_data: {} // web bạn không có email thì để trống
+  })
+});
     } catch (err) {
       console.warn('Facebook CAPI failed:', err);
     }
@@ -229,3 +231,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 };
 
 export default ProductCard;
+
