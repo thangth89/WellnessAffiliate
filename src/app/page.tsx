@@ -1,10 +1,11 @@
-// src/app/products/page.tsx - Updated version
+// src/app/products/page.tsx - Updated với Facebook Pixel
 import React from 'react';
 import type { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
 import ProductCard from '@/components/product/ProductCard';
 import ProductReviews from '@/components/sections/ProductReviews';
 import WellnessTestimonials from '@/components/sections/WellnessTestimonials';
+import FacebookPixel from '@/components/FacebookPixel';
 
 export const metadata: Metadata = {
   title: 'Natural Menopause Support | Shilajit, FloraFresh & Meno Mate',
@@ -42,7 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ JSON-LD cho Website + Organization
 const JsonLd = () => {
   const websiteSchema = {
     '@context': 'https://schema.org',
@@ -91,8 +91,6 @@ const JsonLd = () => {
   );
 };
 
-
-// Type definition cho sản phẩm với multiple images và CTA text
 export interface Product {
   id: number;
   name: string;
@@ -101,15 +99,18 @@ export interface Product {
   originalPrice?: string;
   reviews: number | string;
   rating: number;
-  images: string[]; // Thay đổi từ image thành images array
+  images: string[];
   isNew?: boolean;
   isSale?: boolean;
   affiliateLink: string;
-  ctaText?: string; // Thêm thuộc tính CTA text
+  ctaText?: string;
+  eventName?: string; // Thêm thuộc tính này
 }
 
 const ProductsPage = () => {
-  // Dữ liệu sản phẩm với multiple images và CTA text khác nhau
+  // Facebook Pixel ID của bạn
+  const FACEBOOK_PIXEL_ID = '24634753192800370';
+
   const products: Product[] = [
     {
       id: 1,
@@ -129,7 +130,8 @@ const ProductsPage = () => {
       ],
       isSale: true,
       affiliateLink: "https://wellnessnest.co/products/shilajitwm?ref=jbjycrqj",
-      ctaText: "Learn More"
+      ctaText: "Learn More",
+      eventName: "shilajit" // Thêm tên event cố định
     },
     {
       id: 2,
@@ -143,22 +145,23 @@ const ProductsPage = () => {
         "/images/products/FloraFresh14.webp",
         "/images/products/FloraFresh15.webp",
         "/images/products/FloraFresh1.webp",
-       	"/images/products/FloraFresh2.webp",
-       	"/images/products/FloraFresh3.webp",
-       	"/images/products/FloraFresh4.webp",
-       	"/images/products/FloraFresh5.webp",
-       	"/images/products/FloraFresh6.webp",
-       	"/images/products/FloraFresh7.webp",
-       	"/images/products/FloraFresh8.webp",
-       	"/images/products/FloraFresh9.webp",
-       	"/images/products/FloraFresh10.webp",
-       	"/images/products/FloraFresh11.webp",
-       	"/images/products/FloraFresh12.webp",
- 	"/images/products/FloraFresh13.webp"
+        "/images/products/FloraFresh2.webp",
+        "/images/products/FloraFresh3.webp",
+        "/images/products/FloraFresh4.webp",
+        "/images/products/FloraFresh5.webp",
+        "/images/products/FloraFresh6.webp",
+        "/images/products/FloraFresh7.webp",
+        "/images/products/FloraFresh8.webp",
+        "/images/products/FloraFresh9.webp",
+        "/images/products/FloraFresh10.webp",
+        "/images/products/FloraFresh11.webp",
+        "/images/products/FloraFresh12.webp",
+        "/images/products/FloraFresh13.webp"
       ],
       isNew: true,
       affiliateLink: "https://wellnessnest.co/products/florafresh?ref=jbjycrqj",
-      ctaText: "View Details"
+      ctaText: "View Details",
+      eventName: "florafresh" // Thêm tên event cố định
     },
     {
       id: 3,
@@ -169,28 +172,28 @@ const ProductsPage = () => {
       rating: 4.9,
       images: [
         "/images/products/MenoMate1.webp",
-       	"/images/products/MenoMate2.webp",
-       	"/images/products/MenoMate3.webp",
-       	"/images/products/MenoMate4.webp",
-       	"/images/products/MenoMate5.webp",
-       	"/images/products/MenoMate6.webp",
-       	"/images/products/MenoMate7.webp",
-       	"/images/products/MenoMate8.webp",
-       	"/images/products/MenoMate9.webp",
-       	"/images/products/MenoMate10.webp",
-	],
+        "/images/products/MenoMate2.webp",
+        "/images/products/MenoMate3.webp",
+        "/images/products/MenoMate4.webp",
+        "/images/products/MenoMate5.webp",
+        "/images/products/MenoMate6.webp",
+        "/images/products/MenoMate7.webp",
+        "/images/products/MenoMate8.webp",
+        "/images/products/MenoMate9.webp",
+        "/images/products/MenoMate10.webp",
+      ],
       affiliateLink: "https://wellnessnest.co/products/menomate-menopause-probiotic?ref=jbjycrqj",
-      ctaText: "Buy Now"
+      ctaText: "Buy Now",
+      eventName: "menomate" // Thêm tên event cố định
     },
   ];
 
-  // Sample reviews data cho phần cuối trang
   const reviewsData = [
     {
       id: 1,
       rating: 5,
       title: " ",
-      content: "Midday hot flashes used to knock me out. Ever since I started my morning cup of Shilajit resin, they’re barely a thing. Total game-changer.",
+      content: "Midday hot flashes used to knock me out. Ever since I started my morning cup of Shilajit resin, they're barely a thing. Total game-changer.",
       author: "A***o",
       date: "02 Jul 2025",
       helpful: 5,
@@ -203,7 +206,7 @@ const ProductsPage = () => {
       id: 2,
       rating: 5,
       title: "",
-      content: "Perimenopause was throwing everything out of whack. Energy, mood, digestion. This resin helped bring back a sense of control. Evenings aren’t a disaster anymore.",
+      content: "Perimenopause was throwing everything out of whack. Energy, mood, digestion. This resin helped bring back a sense of control. Evenings aren't a disaster anymore.",
       author: "W***",
       date: "03 Apr 2025",
       helpful: 3,
@@ -216,7 +219,7 @@ const ProductsPage = () => {
       id: 3,
       rating: 4.5,
       title: "",
-      content: "florafresh makes me feel like a goddess! It’s gentle, effective, and gives me confidence I haven’t felt in years.",
+      content: "florafresh makes me feel like a goddess! It's gentle, effective, and gives me confidence I haven't felt in years.",
       author: "M***e",
       date: "15 Mar 2025",
       helpful: 2,
@@ -229,7 +232,7 @@ const ProductsPage = () => {
       id: 4,
       rating: 5,
       title: "",
-      content: "My partner commented on how amazing I smell down there—thanks to FloraFresh. It’s subtle, clean, and totally transformative.",
+      content: "My partner commented on how amazing I smell down there—thanks to FloraFresh. It's subtle, clean, and totally transformative.",
       author: "J***n",
       date: "28 Feb 2025",
       helpful: 1,
@@ -242,7 +245,7 @@ const ProductsPage = () => {
       id: 5,
       rating: 4,
       title: "",
-      content: "My mornings used to start stiff and slow. Now with Shilajit resin, I can move through the day feeling freer in my body. It’s like my joints loosened up from the inside.",
+      content: "My mornings used to start stiff and slow. Now with Shilajit resin, I can move through the day feeling freer in my body. It's like my joints loosened up from the inside.",
       author: "S***h",
       date: "20 Jan 2025",
       helpful: 0,
@@ -250,7 +253,7 @@ const ProductsPage = () => {
       country: "US",
       avatar: "/images/avatars/avata5.jpg",
       images: ["/images/reviews/avata51.jpg"],
-     },
+    },
     {
       id: 6,
       rating: 5,
@@ -268,7 +271,7 @@ const ProductsPage = () => {
       id: 7,
       rating: 4.5,
       title: "",
-      content: "Day 10: my brain fog lifted. I finished a report at work in half the time and actually remembered everyone’s name in the meeting.",
+      content: "Day 10: my brain fog lifted. I finished a report at work in half the time and actually remembered everyone's name in the meeting.",
       author: "D***n",
       date: "05 Jan 2025",
       helpful: 2,
@@ -294,8 +297,12 @@ const ProductsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-	 {/* JSON-LD */}
+      {/* Facebook Pixel */}
+      <FacebookPixel pixelId={FACEBOOK_PIXEL_ID} />
+      
+      {/* JSON-LD */}
       <JsonLd />
+      
       <HeroSection/>
       
       {/* Products Grid */}
@@ -309,27 +316,26 @@ const ProductsPage = () => {
           ))}
         </div>
       </main>
-        <WellnessTestimonials />
-{/* Customer Reviews Section */}
-<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <div className="bg-white rounded-lg shadow-sm p-6">
-    <div className="mb-6">
-      <h2 className="text-3xl sm:text-4xl font-bold text-left">
-          <span className="text-green-600">Real Results</span>{' '}
-          <span className="text-red-600">From Our Customers</span>
-      </h2>
-      <p className="mt-3 text-lg sm:text-xl text-gray-800 text-left">
-        <span className="font-bold">1.8 Million+ Men and Women</span> Are Making New Long Lasting Positive Health Changes
-      </p>
-    </div>
-    <ProductReviews reviews={reviewsData} />
-  </div>
-</section>
+      
+      <WellnessTestimonials />
+
+      {/* Customer Reviews Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-left">
+              <span className="text-green-600">Real Results</span>{' '}
+              <span className="text-red-600">From Our Customers</span>
+            </h2>
+            <p className="mt-3 text-lg sm:text-xl text-gray-800 text-left">
+              <span className="font-bold">1.8 Million+ Men and Women</span> Are Making New Long Lasting Positive Health Changes
+            </p>
+          </div>
+          <ProductReviews reviews={reviewsData} />
+        </div>
+      </section>
     </div>
   );
 };
 
-
 export default ProductsPage;
-
-
