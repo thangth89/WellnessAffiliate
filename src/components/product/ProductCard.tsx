@@ -87,6 +87,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const ctaText = product.ctaText || "Learn More";
     const eventName = product.eventName || `product_${product.id}`;
     const affiliateLink = product.affiliateLink;
+    const eventId = `event_${product.id}_${Date.now()}`;
 
     // Track với Google Analytics (GTM)
     if (typeof window !== 'undefined' && window.dataLayer) {
@@ -105,7 +106,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       }
     }
 
-    // Track với Facebook Pixel
+   // Facebook Pixel
     if (typeof window !== 'undefined' && window.fbq) {
       try {
         window.fbq('trackCustom', eventName, {
@@ -118,12 +119,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           product_id: product.id,
           cta_button: ctaText,
           original_price: product.originalPrice,
-          discount_percentage: discountPercentage
+          discount_percentage: discountPercentage,
+          event_id: eventId
         });
-      } catch (error) {
-        console.warn('Facebook Pixel tracking failed:', error);
-      }
+      } catch (err) { console.warn('Facebook Pixel failed:', err); }
     }
+
+  // Facebook CAPI server-side
+  await fetch('/api/facebook-capi/track', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      event_name: product.eventName || 'cta_click',
+      event_id: eventId,
+      custom_data: {
+        content_name: product.name,
+        content_ids: [product.id.toString()],
+        value: parseFloat(product.price),
+        currency: 'USD'
+      },
+      user_data: {} // để trống nếu không có email
+    })
+  });
 
     // Đợi tracking hoàn thành rồi mở link
     setTimeout(() => {
@@ -222,3 +239,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 };
 
 export default ProductCard;
+
