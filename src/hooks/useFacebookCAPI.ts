@@ -64,9 +64,10 @@ export function useFacebookCAPI() {
       // 1. Track với Browser Pixel trước (nếu có)
       if (typeof window !== 'undefined' && window.fbq) {
         try {
-          window.fbq('track', event.event_name, event.custom_data || {}, {
-            eventID: eventId, // Quan trọng! Cùng eventID với CAPI để deduplicate
-          });
+          window.fbq('track', event.event_name, {
+          ...event.custom_data,
+          event_id: eventId,
+        });
         } catch (pixelError) {
           console.warn('Browser Pixel tracking failed:', pixelError);
         }
@@ -126,3 +127,4 @@ export function useFacebookCAPI() {
 // Export helper functions
 
 export { getFacebookCookies, generateEventId };
+
