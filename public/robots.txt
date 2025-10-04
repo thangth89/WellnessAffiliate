@@ -1,0 +1,31 @@
+# robots.txt tối ưu SEO cho https://gowellnessunlocked.com
+
+# Áp dụng cho tất cả bot
+User-agent: *
+# Cho phép crawl toàn bộ trừ các thư mục nhạy cảm
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /cart/
+Disallow: /checkout/
+
+# Sitemap chính
+Sitemap: https://gowellnessunlocked.com/sitemap.xml
+
+# Crawl delay để tránh tải server quá nhiều (tuỳ chọn, Google bỏ qua)
+Crawl-delay: 10
+
+# Tối ưu riêng cho Googlebot
+User-agent: Googlebot
+Allow: /
+# Có thể thêm crawl-delay riêng nếu cần
+# Crawl-delay: 5
+
+# Tối ưu riêng cho Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Tối ưu riêng cho Yandex
+User-agent: Yandex
+Allow: /
