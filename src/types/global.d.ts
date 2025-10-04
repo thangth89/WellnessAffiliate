@@ -3,8 +3,9 @@ export {};
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    fbq?: (...args: any[]) => void;
-    _fbq?: any;
+    dataLayer: unknown[];
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: unknown;
   }
+
 }
