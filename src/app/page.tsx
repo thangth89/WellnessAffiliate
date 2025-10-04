@@ -109,7 +109,7 @@ export interface Product {
 
 const ProductsPage = () => {
   // Facebook Pixel ID của bạn
-  const FACEBOOK_PIXEL_ID = '24634753192800370';
+  const FACEBOOK_PIXEL_ID = '2625629377782440';
 
   const products: Product[] = [
     {
@@ -337,5 +337,6 @@ const ProductsPage = () => {
     </div>
   );
 };
+
 
 export default ProductsPage;
