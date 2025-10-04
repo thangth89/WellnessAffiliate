@@ -133,7 +133,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 text-sm"
-           onClick={(e) => {
+           onClick={
           // Push event to dataLayer
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
@@ -156,6 +156,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 
 export default ProductCard;
+
 
 
 
