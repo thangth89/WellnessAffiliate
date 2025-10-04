@@ -4,14 +4,14 @@ import React from 'react';
 import { Star, ExternalLink } from 'lucide-react';
 import AdvancedImageGallery from '@/components/sections/AdvancedImageGallery';
 
-// TypeScript declaration for dataLayer
+// TypeScript declaration for dataLayer and Facebook Pixel
 declare global {
   interface Window {
     dataLayer: unknown[];
+    fbq: (type: string, event: string, data?: Record<string, unknown>) => void;
   }
 }
 
-// Interface cho Product với multiple images và CTA text
 export interface Product {
   id: number;
   name: string;
@@ -25,6 +25,7 @@ export interface Product {
   isSale?: boolean;
   affiliateLink: string;
   ctaText?: string;
+  eventName?: string;
 }
 
 interface ProductCardProps {
@@ -32,12 +33,15 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  // Tính toán discount percentage
+  // Kiểm tra product có tồn tại không
+  if (!product) {
+    return null;
+  }
+
   const discountPercentage = product.originalPrice && product.price 
     ? Math.round(((parseFloat(product.originalPrice) - parseFloat(product.price)) / parseFloat(product.originalPrice)) * 100)
     : 0;
 
-  // Render rating stars
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -66,28 +70,47 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return stars;
   };
 
-  // Handle CTA click
+  // Handle CTA click với Facebook Pixel Custom Events
   const handleCtaClick = () => {
+    const ctaText = product.ctaText || "Learn More";
+    // Sử dụng eventName cố định từ data sản phẩm, nếu không có thì dùng product.id
+    const eventName = product.eventName || `product_${product.id}`;
+
+    // Track với Google Analytics (GTM)
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'cta_click',
-        button_type: product.ctaText || "Learn More",
+        button_type: ctaText,
         product_id: product.id,
         product_name: product.name,
         product_price: product.price,
         affiliate_link: product.affiliateLink
       });
+
+      // Track với Facebook Pixel - Gửi Custom Event với tên cố định
+      if (window.fbq) {
+        window.fbq('trackCustom', eventName, {
+          content_name: product.name,
+          content_ids: [product.id.toString()],
+          content_type: 'product',
+          value: parseFloat(product.price),
+          currency: 'USD',
+          content_category: 'wellness_supplements',
+          product_id: product.id,
+          cta_button: ctaText, // Thông tin nút CTA
+          original_price: product.originalPrice,
+          discount_percentage: discountPercentage
+        });
+      }
     }
   };
 
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
-      {/* Image Gallery Section */}
       <div className="relative">
         <AdvancedImageGallery images={product.images} />
         
-        {/* Badges */}
         <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
           {product.isNew && (
             <span className="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
@@ -102,9 +125,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </div>
 
-      {/* Product Info */}
       <div className="p-4">
-        {/* Product Name */}
         <h3 className="font-semibold text-gray-900 text-sm mb-2 min-h-[2.5rem] overflow-hidden" 
             style={{
               display: '-webkit-box',
@@ -114,7 +135,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {product.name}
         </h3>
 
-        {/* Product Description */}
         <p className="text-gray-600 text-xs mb-3 min-h-[2rem] overflow-hidden"
            style={{
              display: '-webkit-box',
@@ -124,7 +144,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {product.description}
         </p>
 
-        {/* Rating & Reviews */}
         <div className="flex items-center gap-2 mb-3">
           <div className="flex items-center">
             {renderStars(product.rating)}
@@ -133,7 +152,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="text-xs text-green-600 font-medium">{product.reviews}</span>
         </div>
 
-        {/* Price Section */}
         <div className="flex items-baseline gap-2 mb-4">
           <span className="text-lg font-bold text-gray-900">
             ${product.price}
@@ -145,7 +163,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           )}
         </div>
 
-        {/* Dynamic CTA Button */}
         <a
           href={product.affiliateLink}
           target="_blank"
@@ -162,4 +179,3 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 };
 
 export default ProductCard;
-
